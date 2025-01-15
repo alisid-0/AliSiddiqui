@@ -14,7 +14,7 @@ const About = () => {
   ]
 
   return (
-    <AboutSection>
+    <AboutSection id="about">
       <Parallax translateY={[-15, 15]}>
         <ContentWrapper>
           <motion.div

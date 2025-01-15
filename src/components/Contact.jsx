@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const Contact = () => {
   return (
-    <ContactSection>
+    <ContactSection id="contact">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -35,11 +35,23 @@ const Contact = () => {
 
 const ContactSection = styled.section`
   min-height: 80vh;
-  background-color: #0a0a0a;
+  background: linear-gradient(180deg, #000000 0%, #000000 85%, #2a0043 100%);
+  position: relative;
   padding: 4rem 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 100%, rgba(42, 0, 67, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+  }
 `
 
 const SectionTitle = styled.h2`

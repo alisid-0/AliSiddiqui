@@ -6,6 +6,7 @@ import About from './components/About'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import CursorEffect from './components/CursorEffect'
+import Navigation from './components/Navigation'
 import './App.css'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <ParallaxProvider>
       <Container>
         <CursorEffect />
+        <Navigation />
         <Hero />
         <About />
         <Projects />

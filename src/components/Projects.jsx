@@ -35,54 +35,61 @@ const Projects = () => {
   ]
 
   return (
-    <ProjectsContainer>
-      <SectionTitle>Featured Projects</SectionTitle>
-      {projects.map((project, index) => (
-        <ProjectSection key={index} gradient={project.gradient}>
-          <Parallax translateY={[-20, 20]}>
-            <ProjectContent>
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true, margin: "-100px" }}
-              >
-                <ProjectCard
-                  as={project.link ? "a" : "div"}
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+    <ProjectsContainer id="projects">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <SectionTitle>Featured Projects</SectionTitle>
+        {projects.map((project, index) => (
+          <ProjectSection key={index} gradient={project.gradient}>
+            <Parallax translateY={[-20, 20]}>
+              <ProjectContent>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true, margin: "-100px" }}
                 >
-                  <ProjectInfo>
-                    <ProjectTitle>{project.title}</ProjectTitle>
-                    <ProjectDescription>{project.description}</ProjectDescription>
-                    <TagContainer>
-                      {project.tags.map((tag, i) => (
-                        <Tag key={i}>{tag}</Tag>
-                      ))}
-                    </TagContainer>
-                  </ProjectInfo>
-                  
-                  <ProjectMedia>
-                    {project.type === 'video' ? (
-                      <ProjectVideo autoPlay loop muted playsInline>
-                        <source src={project.videoUrl} type="video/mp4" />
-                      </ProjectVideo>
-                    ) : (
-                      <ProjectImageWrapper>
-                        <ProjectImage src={project.image} alt={project.title} />
-                        <ProjectOverlay>
-                          <ArrowUpRight size={48} color="#ffffff" weight="thin" />
-                        </ProjectOverlay>
-                      </ProjectImageWrapper>
-                    )}
-                  </ProjectMedia>
-                </ProjectCard>
-              </motion.div>
-            </ProjectContent>
-          </Parallax>
-        </ProjectSection>
-      ))}
+                  <ProjectCard
+                    as={project.link ? "a" : "div"}
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ProjectInfo>
+                      <ProjectTitle>{project.title}</ProjectTitle>
+                      <ProjectDescription>{project.description}</ProjectDescription>
+                      <TagContainer>
+                        {project.tags.map((tag, i) => (
+                          <Tag key={i}>{tag}</Tag>
+                        ))}
+                      </TagContainer>
+                    </ProjectInfo>
+                    
+                    <ProjectMedia>
+                      {project.type === 'video' ? (
+                        <ProjectVideo autoPlay loop muted playsInline>
+                          <source src={project.videoUrl} type="video/mp4" />
+                        </ProjectVideo>
+                      ) : (
+                        <ProjectImageWrapper>
+                          <ProjectImage src={project.image} alt={project.title} />
+                          <ProjectOverlay>
+                            <ArrowUpRight size={48} color="#ffffff" weight="thin" />
+                          </ProjectOverlay>
+                        </ProjectImageWrapper>
+                      )}
+                    </ProjectMedia>
+                  </ProjectCard>
+                </motion.div>
+              </ProjectContent>
+            </Parallax>
+          </ProjectSection>
+        ))}
+      </motion.div>
     </ProjectsContainer>
   )
 }
@@ -114,9 +121,11 @@ const SectionTitle = styled.h2`
   padding: 4rem;
   font-weight: 200;
   letter-spacing: 0.3em;
-  background: linear-gradient(120deg, #64ffda, #bd93f9);
+  background: linear-gradient(120deg, #00ff88, #00a3ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
   position: sticky;
   top: 0;
   z-index: 10;

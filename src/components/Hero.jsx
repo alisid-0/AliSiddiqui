@@ -20,7 +20,7 @@ const lineAnimation = {
 
 const Hero = () => {
   return (
-    <HeroSection>
+    <HeroSection id="home">
       <GradientOverlay />
       <GridTexture />
       <Parallax translateY={[-20, 20]}>
