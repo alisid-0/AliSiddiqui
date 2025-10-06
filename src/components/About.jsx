@@ -56,12 +56,31 @@ const About = () => {
 const AboutSection = styled.section`
   min-height: 100vh;
   width: 100%;
-  background: linear-gradient(180deg, #0a192f 0%, #112240 100%);
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 8rem 2rem;
   position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 30% 30%, rgba(100, 255, 218, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(189, 147, 249, 0.08) 0%, transparent 50%),
+      linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.03) 25%, 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.02) 75%, 
+        transparent 100%);
+    pointer-events: none;
+  }
   
   @media (max-width: 1024px) {
     padding: 6rem 2rem;
@@ -89,10 +108,11 @@ const SectionTitle = styled.h2`
   text-align: center;
   font-weight: 200;
   letter-spacing: 0.3em;
-  background: linear-gradient(120deg, #64ffda, #bd93f9);
+  background: linear-gradient(120deg, #ff6b6b, #4ecdc4, #45b7d1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   width: 100%;
+  text-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
   
   @media (max-width: 1024px) {
     font-size: 2.2rem;
@@ -141,20 +161,27 @@ const SkillsGrid = styled.div`
 `
 
 const SkillCard = styled.div`
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 107, 107, 0.2);
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px) saturate(150%);
   transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 
   &:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 107, 107, 0.4);
+    box-shadow: 
+      0 8px 30px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
   
   @media (max-width: 768px) {

@@ -14,7 +14,7 @@ const Projects = () => {
       tags: ["React Native", "Expo", "OBD2", "Biometric Auth", "SQLite", "Offline-First"],
       type: "video",
       videoUrl: upstreamInspectionsVideo,
-      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      gradient: "linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.1) 100%)",
       impact: "Enabled complete offline field operations",
       category: "Mobile Enterprise"
     },
@@ -24,7 +24,7 @@ const Projects = () => {
       tags: ["React", "TypeScript", "Guardian API", "Real-time Analytics", "PDF Generation", "Predictive Modeling"],
       image: firstChoiceImage, // Placeholder - you can add a mobility image
       link: "#",
-      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+      gradient: "linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(0, 242, 254, 0.1) 100%)",
       impact: "40% dealer efficiency improvement",
       category: "Enterprise Analytics"
     },
@@ -34,7 +34,7 @@ const Projects = () => {
       tags: ["React Native", "Google Gemini AI", "Windows Services", "Voice Recognition", "System Automation"],
       image: butterChickenImage, // Placeholder - you can add a JARVIS image
       link: "#",
-      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      gradient: "linear-gradient(135deg, rgba(240, 147, 251, 0.15) 0%, rgba(245, 87, 108, 0.1) 100%)",
       impact: "Personal productivity assistant",
       category: "AI Innovation"
     },
@@ -44,7 +44,7 @@ const Projects = () => {
       tags: ["React Native", "Enterprise", "Workflow Management", "Liability Tracking", "Revenue Generation"],
       image: firstChoiceImage, // Placeholder - you can add a Car-ID image
       link: "#",
-      gradient: "linear-gradient(135deg, #ff8c00 0%, #ff4500 100%)",
+      gradient: "linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(255, 69, 0, 0.1) 100%)",
       impact: "Opened new revenue streams",
       category: "Enterprise Revenue"
     },
@@ -54,7 +54,7 @@ const Projects = () => {
       tags: ["React 18+", "Firebase Functions", "Firestore", "Serverless", "RBAC", "Cultural Branding"],
       image: butterChickenImage, // Placeholder - you can add a SipOfSilk image
       link: "#",
-      gradient: "linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)",
+      gradient: "linear-gradient(135deg, rgba(46, 204, 113, 0.15) 0%, rgba(39, 174, 96, 0.1) 100%)",
       impact: "Complete coffee shop management system",
       category: "Serverless Platform"
     }
@@ -68,16 +68,15 @@ const Projects = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <SectionTitle>Featured Projects</SectionTitle>
         {projects.map((project, index) => (
           <ProjectSection key={index} gradient={project.gradient}>
-            <Parallax translateY={[-20, 20]}>
+            <Parallax translateY={[-10, 10]}>
               <ProjectContent>
                 <motion.div
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ once: true, margin: "-50px" }}
                 >
                   <ProjectCard
                     as={project.link ? "a" : "div"}
@@ -126,6 +125,10 @@ const Projects = () => {
 
 const ProjectsContainer = styled.div`
   min-height: 100vh;
+  
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 `
 
 const ProjectSection = styled.section`
@@ -137,6 +140,36 @@ const ProjectSection = styled.section`
   padding: 8rem 2rem;
   position: relative;
   overflow: hidden;
+  
+  @media (max-width: 1024px) {
+    min-height: 80vh;
+    padding: 4rem 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    min-height: auto;
+    padding: 2rem 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+      linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.05) 25%, 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.03) 75%, 
+        transparent 100%);
+    pointer-events: none;
+  }
 `
 
 const ProjectContent = styled.div`
@@ -145,49 +178,81 @@ const ProjectContent = styled.div`
   width: 100%;
 `
 
-const SectionTitle = styled.h2`
-  font-size: 3rem;
-  text-align: center;
-  padding: 4rem;
-  font-weight: 200;
-  letter-spacing: 0.3em;
-  background: linear-gradient(120deg, #00ff88, #00a3ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  backdrop-filter: blur(10px);
-  
-  @media (max-width: 1024px) {
-    font-size: 2.5rem;
-    padding: 3rem 2rem;
-  }
-  
-  @media (max-width: 768px) {
-    font-size: 2rem;
-    padding: 2rem 1rem;
-    letter-spacing: 0.2em;
-  }
-`
 
 const ProjectCard = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: ${props => props.gradient};
   border-radius: 24px;
   padding: 4rem;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px) saturate(200%) brightness(110%);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: all 0.4s ease;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.15) 0%, 
+        transparent 30%, 
+        transparent 70%, 
+        rgba(255, 255, 255, 0.1) 100%),
+      linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.08) 25%, 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.08) 75%, 
+        transparent 100%),
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.05) 20%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        rgba(255, 255, 255, 0.05) 80%, 
+        transparent 100%),
+      linear-gradient(0deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.03) 30%, 
+        transparent 70%);
+    pointer-events: none;
+  }
   
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.02) translateY(-5px);
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(30px) saturate(220%) brightness(115%);
   }
   
   @media (max-width: 1024px) {
@@ -198,7 +263,7 @@ const ProjectCard = styled.div`
   
   @media (max-width: 768px) {
     padding: 1.5rem;
-    gap: 1.5rem;
+    gap: 1rem;
     border-radius: 16px;
   }
 `
@@ -211,18 +276,42 @@ const ProjectMedia = styled.div`
   overflow: hidden;
   border-radius: 12px;
 
+  @media (max-width: 1024px) {
+    min-height: 400px;
+  }
+
   @media (max-width: 768px) {
-    min-height: 300px;
+    min-height: 250px;
   }
 `
 
 const ProjectImageWrapper = styled.div`
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.05);
   position: relative;
   border-radius: 12px;
   overflow: hidden;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.1) 25%, 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.05) 75%, 
+        transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
 `
 
 const ProjectOverlay = styled.div`
@@ -234,7 +323,7 @@ const ProjectOverlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.3);
   opacity: 0;
   transition: opacity 0.3s ease;
 
@@ -248,6 +337,8 @@ const ProjectInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
+  position: relative;
+  z-index: 1;
   
   @media (max-width: 768px) {
     gap: 1.5rem;
@@ -264,8 +355,11 @@ const ProjectCategory = styled.span`
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.1em;
-  color: #64ffda;
+  color: rgba(100, 255, 218, 0.9);
   text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
   
   @media (max-width: 768px) {
     font-size: 0.8rem;
@@ -278,6 +372,9 @@ const ProjectTitle = styled.h3`
   letter-spacing: 0.2em;
   color: #ffffff;
   margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
   
   @media (max-width: 1024px) {
     font-size: 2.5rem;
@@ -292,8 +389,11 @@ const ProjectTitle = styled.h3`
 const ProjectImpact = styled.span`
   font-size: 1rem;
   font-weight: 300;
-  color: #50fa7b;
+  color: rgba(80, 250, 123, 0.9);
   font-style: italic;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
   
   @media (max-width: 768px) {
     font-size: 0.9rem;
@@ -303,7 +403,10 @@ const ProjectImpact = styled.span`
 const ProjectDescription = styled.p`
   font-size: 1.2rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
   
   @media (max-width: 1024px) {
     font-size: 1.1rem;
@@ -326,12 +429,17 @@ const TagContainer = styled.div`
 `
 
 const Tag = styled.span`
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
   font-size: 0.9rem;
   letter-spacing: 0.1em;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
   
   @media (max-width: 768px) {
     padding: 0.4rem 1rem;
@@ -344,6 +452,27 @@ const ProjectVideo = styled.video`
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.1) 25%, 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.05) 75%, 
+        transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
 `
 
 const ProjectImage = styled.img`
@@ -351,6 +480,8 @@ const ProjectImage = styled.img`
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
 `
 
 export default Projects 
