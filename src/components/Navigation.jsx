@@ -33,6 +33,14 @@ const NavContainer = styled.nav`
   transform: translateY(-50%);
   z-index: 100;
   mix-blend-mode: difference;
+  
+  @media (max-width: 768px) {
+    top: auto;
+    bottom: 2rem;
+    right: 50%;
+    transform: translateX(50%);
+    mix-blend-mode: normal;
+  }
 `
 
 const NavList = styled.ul`
@@ -40,10 +48,23 @@ const NavList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: row;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.5rem;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+  }
 `
 
 const NavItem = styled.li`
   text-align: right;
+  
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `
 
 const NavButton = styled(motion.button)`
@@ -60,6 +81,18 @@ const NavButton = styled(motion.button)`
 
   &:hover {
     opacity: 1;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.5rem;
+    color: #ffffff;
+    opacity: 0.8;
+    
+    &:hover {
+      opacity: 1;
+      color: #64ffda;
+    }
   }
 `
 

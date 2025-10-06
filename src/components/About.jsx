@@ -1,16 +1,16 @@
 import { Parallax } from 'react-scroll-parallax'
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { Code, Database, Cloud, Terminal, Lightning, Layout } from '@phosphor-icons/react'
+import { Code, Cloud, Terminal, Lightning, Layout, Brain } from '@phosphor-icons/react'
 
 const About = () => {
   const skills = [
-    { name: 'Frontend', icon: Layout, color: '#64ffda' },
-    { name: 'Backend', icon: Database, color: '#bd93f9' },
-    { name: 'Cloud', icon: Cloud, color: '#ff79c6' },
-    { name: 'DevOps', icon: Terminal, color: '#50fa7b' },
-    { name: 'API Design', icon: Code, color: '#f1fa8c' },
-    { name: 'Performance', icon: Lightning, color: '#ff5555' },
+    { name: 'Enterprise Architecture', icon: Layout, color: '#64ffda' },
+    { name: 'AI Integration', icon: Brain, color: '#bd93f9' },
+    { name: 'Cloud Solutions', icon: Cloud, color: '#ff79c6' },
+    { name: 'Mobile Development', icon: Terminal, color: '#50fa7b' },
+    { name: 'Real-time Systems', icon: Code, color: '#f1fa8c' },
+    { name: 'System Automation', icon: Lightning, color: '#ff5555' },
   ]
 
   return (
@@ -25,9 +25,9 @@ const About = () => {
           >
             <SectionTitle>About Me</SectionTitle>
             <AboutText>
-              I'm a passionate full-stack developer with a keen eye for design and a love for clean, efficient code. 
-              My journey in software development has led me to work with modern technologies and best practices, 
-              always striving to create exceptional digital experiences.
+              I&apos;m an enterprise full-stack engineer specializing in AI integration, cloud architecture, and scalable system design. 
+              With expertise spanning from voice-controlled AI assistants to enterprise-grade automotive management systems, 
+              I&apos;ve delivered solutions that have improved operational efficiency by up to 60% across multiple industries.
             </AboutText>
             
             <SkillsGrid>
@@ -62,6 +62,14 @@ const AboutSection = styled.section`
   justify-content: center;
   padding: 8rem 2rem;
   position: relative;
+  
+  @media (max-width: 1024px) {
+    padding: 6rem 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 4rem 1rem;
+  }
 `
 
 const ContentWrapper = styled.div`
@@ -85,6 +93,17 @@ const SectionTitle = styled.h2`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   width: 100%;
+  
+  @media (max-width: 1024px) {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 2rem;
+  }
 `
 
 const AboutText = styled.p`
@@ -95,6 +114,17 @@ const AboutText = styled.p`
   max-width: 800px;
   width: 100%;
   margin-bottom: 4rem;
+  
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
 `
 
 const SkillsGrid = styled.div`
@@ -103,6 +133,11 @@ const SkillsGrid = styled.div`
   gap: 2rem;
   width: 100%;
   margin-top: 2rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+  }
 `
 
 const SkillCard = styled.div`
@@ -120,6 +155,11 @@ const SkillCard = styled.div`
   &:hover {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.05);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    gap: 0.8rem;
   }
 `
 

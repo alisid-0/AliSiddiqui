@@ -68,7 +68,18 @@ const Hero = () => {
             variants={fadeInUp}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <HeroSubtitle>Full Stack Developer</HeroSubtitle>
+            <HeroSubtitle>Enterprise Full Stack Engineer</HeroSubtitle>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            transition={{ duration: 0.8, delay: 1.0 }}
+          >
+            <HeroDescription>
+              AI Integration • Enterprise Architecture • Cloud Solutions
+            </HeroDescription>
           </motion.div>
 
           <LineContainer>
@@ -144,6 +155,15 @@ const HeroTitle = styled.h1`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
+  
+  @media (max-width: 1024px) {
+    font-size: 4rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 3rem;
+    letter-spacing: 0.1em;
+  }
 `
 
 const HeroSubtitle = styled.h2`
@@ -151,7 +171,34 @@ const HeroSubtitle = styled.h2`
   color: #8892b0;
   font-weight: 100;
   letter-spacing: 0.3em;
+  margin-bottom: 1rem;
+  
+  @media (max-width: 1024px) {
+    font-size: 1.3rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+  }
+`
+
+const HeroDescription = styled.p`
+  font-size: 1.1rem;
+  color: #64ffda;
+  font-weight: 300;
+  letter-spacing: 0.1em;
   margin-bottom: 2rem;
+  text-align: center;
+  
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+  }
 `
 
 const LineContainer = styled.div`

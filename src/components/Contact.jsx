@@ -13,16 +13,16 @@ const Contact = () => {
         <SectionTitle>Get In Touch</SectionTitle>
         <ContactContent>
           <ContactInfo>
-            <h3>Let's Connect</h3>
-            <p>I'm always open to new opportunities and interesting projects.</p>
+            <h3>Let&apos;s Connect</h3>
+            <p>I&apos;m always open to new opportunities and interesting projects.</p>
             <SocialLinks>
-              <SocialLink href="https://github.com/yourusername" target="_blank">
+              <SocialLink href="https://github.com/alisiddiqui" target="_blank">
                 GitHub
               </SocialLink>
-              <SocialLink href="https://linkedin.com/in/yourusername" target="_blank">
+              <SocialLink href="https://linkedin.com/in/ali-siddiqui-dev" target="_blank">
                 LinkedIn
               </SocialLink>
-              <SocialLink href="mailto:your.email@example.com">
+              <SocialLink href="mailto:ali.siddiqui.dev@gmail.com">
                 Email
               </SocialLink>
             </SocialLinks>
@@ -52,12 +52,31 @@ const ContactSection = styled.section`
     background: radial-gradient(circle at 50% 100%, rgba(42, 0, 67, 0.2) 0%, transparent 50%);
     pointer-events: none;
   }
+  
+  @media (max-width: 1024px) {
+    padding: 3rem 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+    min-height: 70vh;
+  }
 `
 
 const SectionTitle = styled.h2`
   font-size: 2.5rem;
   margin-bottom: 3rem;
   text-align: center;
+  
+  @media (max-width: 1024px) {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
 `
 
 const ContactContent = styled.div`
@@ -72,12 +91,20 @@ const ContactInfo = styled.div`
   h3 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
+    
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
   
   p {
     color: #cccccc;
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 `
 
@@ -86,6 +113,12 @@ const SocialLinks = styled.div`
   gap: 1.5rem;
   justify-content: center;
   margin-top: 2rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
 `
 
 const SocialLink = styled.a`
@@ -100,6 +133,13 @@ const SocialLink = styled.a`
   &:hover {
     background: #1a1a1a;
     border-color: #666;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    width: 200px;
+    text-align: center;
   }
 `
 

@@ -9,28 +9,54 @@ import upstreamInspectionsVideo from '../assets/videos/ui.mp4'
 const Projects = () => {
   const projects = [
     {
-      title: "First Choice Floors",
-      description: "A modern flooring company website built in one day, showcasing services and portfolio with a clean, professional design.",
-      tags: ["React", "Tailwind CSS"],
-      image: firstChoiceImage,
-      link: "https://first-choice-flooring.vercel.app/",
-      gradient: "linear-gradient(135deg, #0a192f 0%, #172a45 100%)"
-    },
-    {
-      title: "The Butter Chicken Spot",
-      description: "A restaurant website for an up-and-coming establishment in St. Louis, MO, featuring their menu and brand identity.",
-      tags: ["React", "Firebase", "3D Modeling"],
-      image: butterChickenImage,
-      link: "https://butter-chicken-spot.vercel.app/",
-      gradient: "linear-gradient(135deg, #ff8c00 0%, #ff4500 100%)"
-    },
-    {
-      title: "Upstream Inspections Portal",
-      description: "A comprehensive redesign of the web portal for Upstream Inspections, focusing on improved user experience and modern interface.",
-      tags: ["React", "UI/UX", "Portal Redesign"],
+      title: "Upstream Inspections Mobile App",
+      description: "Cross-platform React Native field solution with offline-first inspection workflow and conflict resolution. Features OBD2 integration, biometric authentication, GPS tracking, and sophisticated SQLite sync algorithms for complete offline functionality.",
+      tags: ["React Native", "Expo", "OBD2", "Biometric Auth", "SQLite", "Offline-First"],
       type: "video",
       videoUrl: upstreamInspectionsVideo,
-      gradient: "linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)"
+      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      impact: "Enabled complete offline field operations",
+      category: "Mobile Enterprise"
+    },
+    {
+      title: "Upstream Mobility Platform",
+      description: "Real-time analytics and tracking system with Guardian API integration. Features battery health testing, automated certification generation, role-based dashboards, and sales analytics with predictive modeling for 40% dealer efficiency improvement.",
+      tags: ["React", "TypeScript", "Guardian API", "Real-time Analytics", "PDF Generation", "Predictive Modeling"],
+      image: firstChoiceImage, // Placeholder - you can add a mobility image
+      link: "#",
+      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+      impact: "40% dealer efficiency improvement",
+      category: "Enterprise Analytics"
+    },
+    {
+      title: "JARVIS AI Assistant",
+      description: "Voice-controlled AI assistant with Google Gemini integration, comprehensive Windows service architecture, and system automation including power management, window controls, and office automation.",
+      tags: ["React Native", "Google Gemini AI", "Windows Services", "Voice Recognition", "System Automation"],
+      image: butterChickenImage, // Placeholder - you can add a JARVIS image
+      link: "#",
+      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      impact: "Personal productivity assistant",
+      category: "AI Innovation"
+    },
+    {
+      title: "Car-ID",
+      description: "Enterprise-grade vehicle delivery tracking app that opened new revenue streams. Features user-based workflows for remarketers, inspectors, and delivery drivers with comprehensive liability tracking for vehicle condition management.",
+      tags: ["React Native", "Enterprise", "Workflow Management", "Liability Tracking", "Revenue Generation"],
+      image: firstChoiceImage, // Placeholder - you can add a Car-ID image
+      link: "#",
+      gradient: "linear-gradient(135deg, #ff8c00 0%, #ff4500 100%)",
+      impact: "Opened new revenue streams",
+      category: "Enterprise Revenue"
+    },
+    {
+      title: "SipOfSilk Coffee Shop",
+      description: "Serverless Firebase Functions-based platform with automated scaling. Features coffee menu management with spice level categorization, user authentication with RBAC, and brand-consistent design system with real-time persistence.",
+      tags: ["React 18+", "Firebase Functions", "Firestore", "Serverless", "RBAC", "Cultural Branding"],
+      image: butterChickenImage, // Placeholder - you can add a SipOfSilk image
+      link: "#",
+      gradient: "linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)",
+      impact: "Complete coffee shop management system",
+      category: "Serverless Platform"
     }
   ]
 
@@ -60,7 +86,11 @@ const Projects = () => {
                     rel="noopener noreferrer"
                   >
                     <ProjectInfo>
-                      <ProjectTitle>{project.title}</ProjectTitle>
+                      <ProjectHeader>
+                        <ProjectCategory>{project.category}</ProjectCategory>
+                        <ProjectTitle>{project.title}</ProjectTitle>
+                        <ProjectImpact>{project.impact}</ProjectImpact>
+                      </ProjectHeader>
                       <ProjectDescription>{project.description}</ProjectDescription>
                       <TagContainer>
                         {project.tags.map((tag, i) => (
@@ -130,6 +160,17 @@ const SectionTitle = styled.h2`
   top: 0;
   z-index: 10;
   backdrop-filter: blur(10px);
+  
+  @media (max-width: 1024px) {
+    font-size: 2.5rem;
+    padding: 3rem 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    padding: 2rem 1rem;
+    letter-spacing: 0.2em;
+  }
 `
 
 const ProjectCard = styled.div`
@@ -152,6 +193,13 @@ const ProjectCard = styled.div`
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
     padding: 2rem;
+    gap: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    gap: 1.5rem;
+    border-radius: 16px;
   }
 `
 
@@ -200,6 +248,28 @@ const ProjectInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
+  
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+  }
+`
+
+const ProjectHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`
+
+const ProjectCategory = styled.span`
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: #64ffda;
+  text-transform: uppercase;
+  
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `
 
 const ProjectTitle = styled.h3`
@@ -207,18 +277,52 @@ const ProjectTitle = styled.h3`
   font-weight: 200;
   letter-spacing: 0.2em;
   color: #ffffff;
+  margin: 0;
+  
+  @media (max-width: 1024px) {
+    font-size: 2.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+  }
+`
+
+const ProjectImpact = styled.span`
+  font-size: 1rem;
+  font-weight: 300;
+  color: #50fa7b;
+  font-style: italic;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `
 
 const ProjectDescription = styled.p`
   font-size: 1.2rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.7);
+  
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 `
 
 const TagContainer = styled.div`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+  }
 `
 
 const Tag = styled.span`
@@ -228,6 +332,11 @@ const Tag = styled.span`
   border-radius: 50px;
   font-size: 0.9rem;
   letter-spacing: 0.1em;
+  
+  @media (max-width: 768px) {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
 `
 
 const ProjectVideo = styled.video`
