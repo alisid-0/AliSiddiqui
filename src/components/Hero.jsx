@@ -109,8 +109,9 @@ const HeroSection = styled.section`
   align-items: center;
   justify-content: center;
   position: relative;
-  background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+  background: transparent;
   overflow: hidden;
+  z-index: 1;
 `
 
 const GridTexture = styled.div`
@@ -136,7 +137,7 @@ const GradientOverlay = styled.div`
 
 const HeroContent = styled.div`
   position: relative;
-  z-index: 1;
+  z-index: 2;
 `
 
 const IconsContainer = styled.div`

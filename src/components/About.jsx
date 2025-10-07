@@ -56,31 +56,13 @@ const About = () => {
 const AboutSection = styled.section`
   min-height: 100vh;
   width: 100%;
-  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 8rem 2rem;
   position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 30% 30%, rgba(100, 255, 218, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 70% 70%, rgba(189, 147, 249, 0.08) 0%, transparent 50%),
-      linear-gradient(45deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.03) 25%, 
-        transparent 50%, 
-        rgba(255, 255, 255, 0.02) 75%, 
-        transparent 100%);
-    pointer-events: none;
-  }
+  z-index: 1;
   
   @media (max-width: 1024px) {
     padding: 6rem 2rem;
@@ -95,7 +77,7 @@ const ContentWrapper = styled.div`
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;

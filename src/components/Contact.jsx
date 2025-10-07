@@ -35,23 +35,13 @@ const Contact = () => {
 
 const ContactSection = styled.section`
   min-height: 80vh;
-  background: linear-gradient(180deg, #000000 0%, #000000 85%, #2a0043 100%);
+  background: transparent;
   position: relative;
   padding: 4rem 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 50% 100%, rgba(42, 0, 67, 0.2) 0%, transparent 50%);
-    pointer-events: none;
-  }
+  z-index: 1;
   
   @media (max-width: 1024px) {
     padding: 3rem 2rem;
@@ -83,6 +73,8 @@ const ContactContent = styled.div`
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  z-index: 2;
+  position: relative;
 `
 
 const ContactInfo = styled.div`

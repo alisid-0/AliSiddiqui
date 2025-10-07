@@ -133,13 +133,14 @@ const ProjectsContainer = styled.div`
 
 const ProjectSection = styled.section`
   min-height: 100vh;
-  background: ${props => props.gradient};
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 8rem 2rem;
   position: relative;
   overflow: hidden;
+  z-index: 1;
   
   @media (max-width: 1024px) {
     min-height: 80vh;
@@ -151,31 +152,14 @@ const ProjectSection = styled.section`
     padding: 2rem 1rem;
     margin-bottom: 1rem;
   }
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-      linear-gradient(45deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.05) 25%, 
-        transparent 50%, 
-        rgba(255, 255, 255, 0.03) 75%, 
-        transparent 100%);
-    pointer-events: none;
-  }
 `
 
 const ProjectContent = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
+  z-index: 2;
+  position: relative;
 `
 
 
