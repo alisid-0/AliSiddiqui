@@ -1,364 +1,372 @@
-import { Parallax } from 'react-scroll-parallax'
 import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import firstChoiceImage from '../assets/firstchoice.png'
 import butterChickenImage from '../assets/butter.png'
-import upstreamInspectionsVideo from '../assets/videos/ui.mp4'
+import upstreamInspectionsImage1 from '../assets/upstreaminspectionsmobileapp/IMG_7993.PNG'
+import upstreamInspectionsImage2 from '../assets/upstreaminspectionsmobileapp/IMG_7994.PNG'
+import upstreamMobilityImage1 from '../assets/upstreammobility/Screenshot 2025-10-07 151533.png'
+import upstreamMobilityImage2 from '../assets/upstreammobility/Screenshot 2025-10-07 151606.png'
+import upstreamMobilityImage3 from '../assets/upstreammobility/Screenshot 2025-10-07 152134.png'
+import sipOfSilkImage from '../assets/sipofsilk/Screenshot 2025-10-07 151211.png'
 
 const Projects = () => {
   const projects = [
     {
-      title: "Upstream Inspections Mobile App",
-      description: "Cross-platform React Native field solution with offline-first inspection workflow and conflict resolution. Features OBD2 integration, biometric authentication, GPS tracking, and sophisticated SQLite sync algorithms for complete offline functionality.",
-      tags: ["React Native", "Expo", "OBD2", "Biometric Auth", "SQLite", "Offline-First"],
-      type: "video",
-      videoUrl: upstreamInspectionsVideo,
-      gradient: "linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.1) 100%)",
-      impact: "Enabled complete offline field operations",
-      category: "Mobile Enterprise"
-    },
-    {
-      title: "Upstream Mobility Platform",
-      description: "Real-time analytics and tracking system with Guardian API integration. Features battery health testing, automated certification generation, role-based dashboards, and sales analytics with predictive modeling for 40% dealer efficiency improvement.",
-      tags: ["React", "TypeScript", "Guardian API", "Real-time Analytics", "PDF Generation", "Predictive Modeling"],
-      image: firstChoiceImage, // Placeholder - you can add a mobility image
-      link: "#",
-      gradient: "linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(0, 242, 254, 0.1) 100%)",
-      impact: "40% dealer efficiency improvement",
-      category: "Enterprise Analytics"
-    },
-    {
-      title: "JARVIS AI Assistant",
-      description: "Voice-controlled AI assistant with Google Gemini integration, comprehensive Windows service architecture, and system automation including power management, window controls, and office automation.",
-      tags: ["React Native", "Google Gemini AI", "Windows Services", "Voice Recognition", "System Automation"],
-      image: butterChickenImage, // Placeholder - you can add a JARVIS image
-      link: "#",
-      gradient: "linear-gradient(135deg, rgba(240, 147, 251, 0.15) 0%, rgba(245, 87, 108, 0.1) 100%)",
-      impact: "Personal productivity assistant",
-      category: "AI Innovation"
-    },
-    {
-      title: "Car-ID",
-      description: "Enterprise-grade vehicle delivery tracking app that opened new revenue streams. Features user-based workflows for remarketers, inspectors, and delivery drivers with comprehensive liability tracking for vehicle condition management.",
-      tags: ["React Native", "Enterprise", "Workflow Management", "Liability Tracking", "Revenue Generation"],
-      image: firstChoiceImage, // Placeholder - you can add a Car-ID image
-      link: "#",
-      gradient: "linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(255, 69, 0, 0.1) 100%)",
-      impact: "Opened new revenue streams",
-      category: "Enterprise Revenue"
-    },
-    {
+      id: "sipofsilk",
       title: "SipOfSilk Coffee Shop",
       description: "Serverless Firebase Functions-based platform with automated scaling. Features coffee menu management with spice level categorization, user authentication with RBAC, and brand-consistent design system with real-time persistence.",
+      summary: "Serverless Firebase Functions-based platform with automated scaling. Features coffee menu management with spice level categorization, user authentication with RBAC...",
       tags: ["React 18+", "Firebase Functions", "Firestore", "Serverless", "RBAC", "Cultural Branding"],
-      image: butterChickenImage, // Placeholder - you can add a SipOfSilk image
+      images: [sipOfSilkImage],
+      scaleX: 2,
+      scaleY: 2,
       link: "#",
       gradient: "linear-gradient(135deg, rgba(46, 204, 113, 0.15) 0%, rgba(39, 174, 96, 0.1) 100%)",
       impact: "Complete coffee shop management system",
-      category: "Serverless Platform"
+      category: "Serverless Platform",
+      detailedDescription: `SipOfSilk Coffee Shop is a comprehensive serverless platform built with Firebase Functions and Firestore. The application provides complete coffee shop management with cultural branding and automated scaling capabilities.
+
+Key Features:
+• Serverless architecture with Firebase Functions for automated scaling
+• Coffee menu management with spice level categorization
+• Role-based access control (RBAC) for different user types
+• Brand-consistent design system reflecting cultural heritage
+• Real-time data persistence with Firestore
+• Inventory management and order tracking
+
+The platform represents a complete coffee shop management solution that scales automatically based on demand while maintaining cultural authenticity in design and functionality.`,
+      techStack: [
+        "React 18+", "Firebase Functions", "Firestore", "Serverless Architecture", 
+        "RBAC", "Material-UI", "Real-time Database", "Cultural Design System"
+      ],
+      links: {
+        demo: "#",
+        github: "#",
+        documentation: "#"
+      }
+    },
+    {
+      id: "upstream-mobility",
+      title: "Upstream Mobility Platform",
+      description: "Real-time analytics and tracking system with Guardian API integration. Features battery health testing, automated certification generation, role-based dashboards, and sales analytics with predictive modeling for 40% dealer efficiency improvement.",
+      summary: "Real-time analytics and tracking system with Guardian API integration. Features battery health testing, automated certification generation, role-based dashboards...",
+      tags: ["React", "TypeScript", "Guardian API", "Real-time Analytics", "PDF Generation", "Predictive Modeling"],
+      images: [upstreamMobilityImage1, upstreamMobilityImage2, upstreamMobilityImage3],
+      scaleX: 2,
+      scaleY: 2,
+      link: "#",
+      gradient: "linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(0, 242, 254, 0.1) 100%)",
+      impact: "40% dealer efficiency improvement",
+      category: "Enterprise Analytics",
+      detailedDescription: `Upstream Mobility Platform is a comprehensive analytics and tracking system designed for automotive dealerships. The platform integrates with Guardian API to provide real-time insights into vehicle performance, battery health, and dealer operations.
+
+Key Features:
+• Real-time analytics dashboard with customizable metrics
+• Battery health testing and performance monitoring
+• Automated certification generation for compliance
+• Role-based access control for different user types
+• Sales analytics with predictive modeling capabilities
+• Integration with Guardian API for vehicle data
+
+The platform achieved a 40% improvement in dealer efficiency by providing actionable insights and automating previously manual processes. The predictive modeling capabilities help dealers make informed decisions about inventory and sales strategies.`,
+      techStack: [
+        "React", "TypeScript", "Node.js", "Guardian API", "PostgreSQL", 
+        "Real-time Analytics", "PDF Generation", "Predictive Modeling", "Role-based Access"
+      ],
+      links: {
+        demo: "#",
+        github: "#",
+        documentation: "#"
+      }
+    },
+    {
+      id: "jarvis-ai",
+      title: "JARVIS AI Assistant",
+      description: "Voice-controlled AI assistant with Google Gemini integration, comprehensive Windows service architecture, and system automation including power management, window controls, and office automation.",
+      summary: "Voice-controlled AI assistant with Google Gemini integration, comprehensive Windows service architecture, and system automation including power management...",
+      tags: ["React Native", "Google Gemini AI", "Windows Services", "Voice Recognition", "System Automation"],
+      images: [butterChickenImage, firstChoiceImage],
+      scaleX: 1,
+      scaleY: 1,
+      link: "#",
+      gradient: "linear-gradient(135deg, rgba(240, 147, 251, 0.15) 0%, rgba(245, 87, 108, 0.1) 100%)",
+      impact: "Personal productivity assistant",
+      category: "AI Innovation",
+      detailedDescription: `JARVIS AI Assistant is a comprehensive voice-controlled AI system built with Google Gemini integration. The application provides seamless Windows system automation and office productivity features through natural language processing.
+
+Key Features:
+• Voice-controlled interface with Google Gemini AI
+• Windows service architecture for system integration
+• Power management and system controls
+• Office automation and productivity tools
+• Real-time voice recognition and processing
+• Customizable automation workflows
+
+The assistant transforms daily computer interactions by enabling hands-free control of system functions, office applications, and productivity tasks through natural speech commands.`,
+      techStack: [
+        "React Native", "Google Gemini AI", "Windows Services", "Voice Recognition", 
+        "System Automation", "C#", "Windows API", "Natural Language Processing"
+      ],
+      links: {
+        demo: "#",
+        github: "#",
+        documentation: "#"
+      }
+    },
+    {
+      id: "car-id",
+      title: "Car-ID",
+      description: "Enterprise-grade vehicle delivery tracking app that opened new revenue streams. Features user-based workflows for remarketers, inspectors, and delivery drivers with comprehensive liability tracking for vehicle condition management.",
+      summary: "Enterprise-grade vehicle delivery tracking app that opened new revenue streams. Features user-based workflows for remarketers, inspectors, and delivery drivers...",
+      tags: ["React Native", "Enterprise", "Workflow Management", "Liability Tracking", "Revenue Generation"],
+      images: [firstChoiceImage, butterChickenImage],
+      scaleX: 1,
+      scaleY: 1,
+      link: "#",
+      gradient: "linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(255, 69, 0, 0.1) 100%)",
+      impact: "Opened new revenue streams",
+      category: "Enterprise Revenue",
+      detailedDescription: `Car-ID is an enterprise-grade vehicle delivery tracking application designed to streamline automotive logistics and create new revenue opportunities. The platform serves multiple user types with specialized workflows and comprehensive liability management.
+
+Key Features:
+• Role-based workflows for remarketers, inspectors, and delivery drivers
+• Comprehensive liability tracking for vehicle condition management
+• Real-time delivery status updates and notifications
+• Photo documentation and condition reporting
+• Integration with existing automotive systems
+• Revenue generation through premium features
+
+The application successfully opened new revenue streams by providing essential tracking and documentation services to the automotive industry, improving operational efficiency and reducing liability risks.`,
+      techStack: [
+        "React Native", "Node.js", "PostgreSQL", "AWS", "Image Processing", 
+        "Push Notifications", "GPS Tracking", "Enterprise Integration"
+      ],
+      links: {
+        demo: "#",
+        github: "#",
+        documentation: "#"
+      }
+    },
+    {
+      id: "upstream-inspections",
+      title: "Upstream Inspections Mobile App",
+      description: "Cross-platform React Native field solution with offline-first inspection workflow and conflict resolution. Features OBD2 integration, biometric authentication, GPS tracking, and sophisticated SQLite sync algorithms for complete offline functionality.",
+      summary: "Cross-platform React Native field solution with offline-first inspection workflow and conflict resolution. Features OBD2 integration, biometric authentication...",
+      tags: ["React Native", "Expo", "OBD2", "Biometric Auth", "SQLite", "Offline-First"],
+      images: [upstreamInspectionsImage1, upstreamInspectionsImage2],
+      scaleX: 1,
+      scaleY: 1,
+      link: "#",
+      gradient: "linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.1) 100%)",
+      impact: "Enabled complete offline field operations",
+      category: "Mobile Enterprise",
+      layout: "portrait", // Special layout flag for 2-column design
+      detailedDescription: `Upstream Inspections Mobile App is a comprehensive field inspection solution built with React Native and Expo. The application provides complete offline functionality, allowing field technicians to conduct inspections without internet connectivity.
+
+Key Features:
+• Offline-first architecture with sophisticated SQLite sync algorithms
+• OBD2 integration for vehicle diagnostics and data collection
+• Biometric authentication for secure access
+• GPS tracking for location-based inspections
+• Conflict resolution system for data synchronization
+• Real-time data capture and validation
+
+The app revolutionized field operations by enabling technicians to work in remote locations with limited connectivity, significantly improving productivity and data accuracy. The offline-first approach ensures continuous operation regardless of network conditions.`,
+      techStack: [
+        "React Native", "Expo", "TypeScript", "SQLite", "OBD2 Protocol", 
+        "Biometric Authentication", "GPS Tracking", "Offline Sync", "Conflict Resolution"
+      ],
+      links: {
+        demo: "#",
+        github: "#",
+        documentation: "#"
+      }
     }
   ]
 
   return (
     <ProjectsContainer id="projects">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        {projects.map((project, index) => (
-          <ProjectSection key={index} gradient={project.gradient}>
-            <Parallax translateY={[-10, 10]}>
-              <ProjectContent>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                >
-                  <ProjectCard
-                    as={project.link ? "a" : "div"}
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ProjectInfo>
-                      <ProjectHeader>
-                        <ProjectCategory>{project.category}</ProjectCategory>
-                        <ProjectTitle>{project.title}</ProjectTitle>
-                        <ProjectImpact>{project.impact}</ProjectImpact>
-                      </ProjectHeader>
-                      <ProjectDescription>{project.description}</ProjectDescription>
-                      <TagContainer>
-                        {project.tags.map((tag, i) => (
-                          <Tag key={i}>{tag}</Tag>
-                        ))}
-                      </TagContainer>
-                    </ProjectInfo>
-                    
-                    <ProjectMedia>
-                      {project.type === 'video' ? (
-                        <ProjectVideo autoPlay loop muted playsInline>
-                          <source src={project.videoUrl} type="video/mp4" />
-                        </ProjectVideo>
-                      ) : (
-                        <ProjectImageWrapper>
-                          <ProjectImage src={project.image} alt={project.title} />
-                          <ProjectOverlay>
-                            <ArrowUpRight size={48} color="#ffffff" weight="thin" />
-                          </ProjectOverlay>
-                        </ProjectImageWrapper>
-                      )}
-                    </ProjectMedia>
-                  </ProjectCard>
-                </motion.div>
-              </ProjectContent>
-            </Parallax>
-          </ProjectSection>
-        ))}
-      </motion.div>
+      {projects.map((project, index) => (
+        <ProjectSection key={project.id} index={index}>
+          <ProjectItem index={index}>
+            {/* Image side */}
+            <ImageSide index={index}>
+              <motion.div
+                initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: false, margin: "-100px" }}
+                style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                <ProjectImage 
+                  src={project.images ? project.images[0] : butterChickenImage} 
+                  alt={project.title}
+                  isPortrait={project.layout === 'portrait'}
+                  scaleX={project.scaleX}
+                  scaleY={project.scaleY}
+                />
+              </motion.div>
+            </ImageSide>
+
+            {/* Content side */}
+            <ContentSide index={index}>
+              <motion.div
+                initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                viewport={{ once: false, margin: "-100px" }}
+              >
+                <ProjectNumber>0{index + 1}</ProjectNumber>
+                <ProjectCategory>{project.category}</ProjectCategory>
+                <ProjectTitle>{project.title}</ProjectTitle>
+                <ProjectImpact>{project.impact}</ProjectImpact>
+                <ProjectDescription>{project.description}</ProjectDescription>
+                
+                <TagContainer>
+                  {project.tags.map((tag, i) => (
+                    <Tag key={i}>{tag}</Tag>
+                  ))}
+                </TagContainer>
+
+                <ProjectLink href={project.link}>
+                  View Project <ArrowUpRight size={20} weight="bold" />
+                </ProjectLink>
+              </motion.div>
+            </ContentSide>
+          </ProjectItem>
+        </ProjectSection>
+      ))}
     </ProjectsContainer>
   )
 }
 
+// Background colors that change based on scroll position
+const backgroundColors = [
+  'linear-gradient(135deg, rgba(46, 204, 113, 0.08) 0%, rgba(39, 174, 96, 0.05) 100%)',
+  'linear-gradient(135deg, rgba(79, 172, 254, 0.08) 0%, rgba(0, 242, 254, 0.05) 100%)',
+  'linear-gradient(135deg, rgba(240, 147, 251, 0.08) 0%, rgba(245, 87, 108, 0.05) 100%)',
+  'linear-gradient(135deg, rgba(255, 140, 0, 0.08) 0%, rgba(255, 69, 0, 0.05) 100%)',
+  'linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.05) 100%)',
+]
+
 const ProjectsContainer = styled.div`
-  min-height: 100vh;
-  
-  @media (max-width: 768px) {
-    padding: 0;
-  }
+  width: 100%;
+  position: relative;
 `
 
 const ProjectSection = styled.section`
   min-height: 100vh;
-  background: transparent;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8rem 2rem;
   position: relative;
-  overflow: hidden;
-  z-index: 1;
+  padding: 4rem 2rem;
+  background: ${props => backgroundColors[props.index % backgroundColors.length]};
+  transition: background 0.6s ease;
   
-  @media (max-width: 1024px) {
-    min-height: 80vh;
-    padding: 4rem 2rem;
+  @media (max-width: 1600px) {
+    padding: 4rem 1.5rem;
   }
   
   @media (max-width: 768px) {
     min-height: auto;
-    padding: 2rem 1rem;
-    margin-bottom: 1rem;
+    padding: 3rem 1rem;
   }
 `
 
-const ProjectContent = styled.div`
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
-  z-index: 2;
-  position: relative;
-`
-
-
-const ProjectCard = styled.div`
+const ProjectItem = styled.div`
+  max-width: 100%;
+  width: 95%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  background: ${props => props.gradient};
-  border-radius: 24px;
-  padding: 4rem;
-  backdrop-filter: blur(25px) saturate(200%) brightness(110%);
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
+  grid-template-columns: ${props => props.index % 2 === 0 ? '1fr 1fr' : '1fr 1fr'};
+  gap: 6rem;
+  align-items: center;
   
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.15) 0%, 
-        transparent 30%, 
-        transparent 70%, 
-        rgba(255, 255, 255, 0.1) 100%),
-      linear-gradient(45deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.08) 25%, 
-        transparent 50%, 
-        rgba(255, 255, 255, 0.08) 75%, 
-        transparent 100%),
-      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
-    pointer-events: none;
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.05) 20%, 
-        rgba(255, 255, 255, 0.1) 50%, 
-        rgba(255, 255, 255, 0.05) 80%, 
-        transparent 100%),
-      linear-gradient(0deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.03) 30%, 
-        transparent 70%);
-    pointer-events: none;
-  }
-  
-  &:hover {
-    transform: scale(1.02) translateY(-5px);
-    box-shadow: 
-      0 25px 50px rgba(0, 0, 0, 0.18),
-      inset 0 1px 0 rgba(255, 255, 255, 0.7),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.1),
-      0 0 0 1px rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(30px) saturate(220%) brightness(115%);
+  @media (max-width: 1600px) {
+    width: 92%;
+    gap: 5rem;
   }
   
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
-    padding: 2rem;
+    gap: 2rem;
+    width: 85%;
+  }
+  
+  @media (max-width: 768px) {
+    width: 90%;
     gap: 2rem;
   }
-  
-  @media (max-width: 768px) {
-    padding: 1.5rem;
-    gap: 1rem;
-    border-radius: 16px;
-  }
 `
 
-const ProjectMedia = styled.div`
-  position: relative;
+const ImageSide = styled.div`
+  order: ${props => props.index % 2 === 0 ? '1' : '2'};
   width: 100%;
-  height: 100%;
-  min-height: 500px;
-  overflow: hidden;
-  border-radius: 12px;
-
-  @media (max-width: 1024px) {
-    min-height: 400px;
-  }
-
-  @media (max-width: 768px) {
-    min-height: 250px;
-  }
-`
-
-const ProjectImageWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.05);
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      linear-gradient(45deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.1) 25%, 
-        transparent 50%, 
-        rgba(255, 255, 255, 0.05) 75%, 
-        transparent 100%);
-    pointer-events: none;
-    z-index: 1;
-  }
-`
-
-const ProjectOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-
-  &:hover {
-    opacity: 1;
-  }
-`
-
-const ProjectInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2rem;
   position: relative;
   z-index: 1;
   
-  @media (max-width: 768px) {
-    gap: 1.5rem;
+  @media (max-width: 1024px) {
+    order: 1;
+    height: 500px;
   }
-`
-
-const ProjectHeader = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`
-
-const ProjectCategory = styled.span`
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  color: rgba(100, 255, 218, 0.9);
-  text-transform: uppercase;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 1;
   
   @media (max-width: 768px) {
-    font-size: 0.8rem;
+    height: 400px;
   }
 `
 
-const ProjectTitle = styled.h3`
-  font-size: 3rem;
-  font-weight: 200;
+const ContentSide = styled.div`
+  order: ${props => props.index % 2 === 0 ? '2' : '1'};
+  padding: 2rem 3rem;
+  position: relative;
+  z-index: 10;
+  
+  @media (max-width: 1600px) {
+    padding: 2rem 2rem;
+  }
+  
+  @media (max-width: 1024px) {
+    order: 2;
+    padding: 1rem 0;
+  }
+`
+
+const ProjectNumber = styled.div`
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.5rem;
   letter-spacing: 0.2em;
-  color: #ffffff;
-  margin: 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   position: relative;
-  z-index: 1;
+  z-index: 10;
+`
+
+const ProjectCategory = styled.div`
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 10;
+`
+
+const ProjectTitle = styled.h2`
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 10;
   
   @media (max-width: 1024px) {
     font-size: 2.5rem;
@@ -366,106 +374,136 @@ const ProjectTitle = styled.h3`
   
   @media (max-width: 768px) {
     font-size: 2rem;
-    letter-spacing: 0.1em;
   }
 `
 
-const ProjectImpact = styled.span`
-  font-size: 1rem;
-  font-weight: 300;
-  color: rgba(80, 250, 123, 0.9);
+const ProjectImpact = styled.div`
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(80, 250, 123, 0.95);
+  margin-bottom: 1.5rem;
   font-style: italic;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   position: relative;
-  z-index: 1;
+  z-index: 10;
   
   @media (max-width: 768px) {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 `
 
 const ProjectDescription = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 2rem 0;
+  max-width: 100%;
   position: relative;
-  z-index: 1;
-  
-  @media (max-width: 1024px) {
-    font-size: 1.1rem;
-  }
+  z-index: 10;
   
   @media (max-width: 768px) {
     font-size: 1rem;
     line-height: 1.6;
+    margin-bottom: 1.5rem;
   }
 `
 
 const TagContainer = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 10;
   
   @media (max-width: 768px) {
     gap: 0.5rem;
+    margin-bottom: 2rem;
   }
 `
 
 const Tag = styled.span`
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  padding: 0.5rem 1.5rem;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
   position: relative;
-  z-index: 1;
+  z-index: 10;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
   
   @media (max-width: 768px) {
-    padding: 0.4rem 1rem;
-    font-size: 0.8rem;
-  }
-`
-
-const ProjectVideo = styled.video`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      linear-gradient(45deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.1) 25%, 
-        transparent 50%, 
-        rgba(255, 255, 255, 0.05) 75%, 
-        transparent 100%);
-    pointer-events: none;
-    z-index: 1;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
   }
 `
 
 const ProjectImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
+  max-width: 100%;
+  max-height: 100%;
+  width: ${props => props.isPortrait ? 'auto' : '100%'};
+  height: ${props => props.isPortrait ? '100%' : 'auto'};
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: scale(${props => props.scaleX || 1}, ${props => props.scaleY || 1});
+  
+  &:hover {
+    transform: scale(${props => (props.scaleX || 1) * 1.03}, ${props => (props.scaleY || 1) * 1.03});
+    box-shadow: 
+      0 30px 60px rgba(0, 0, 0, 0.35),
+      0 15px 30px rgba(0, 0, 0, 0.25);
+  }
+`
+
+const ProjectLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 10;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  svg {
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover svg {
+    transform: translate(3px, -3px);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
 `
 
 export default Projects 
