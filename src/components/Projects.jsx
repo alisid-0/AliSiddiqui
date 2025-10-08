@@ -19,7 +19,7 @@ const Projects = () => {
       title: "Upstream Inspections Mobile App",
       description: "Cross-platform React Native field solution with offline-first inspection workflow and conflict resolution. Features OBD2 integration, biometric authentication, GPS tracking, and sophisticated SQLite sync algorithms for complete offline functionality.",
       summary: "Cross-platform React Native field solution with offline-first inspection workflow and conflict resolution. Features OBD2 integration, biometric authentication...",
-      tags: ["React Native", "Expo", "OBD2", "Biometric Auth", "SQLite", "Offline-First"],
+      tags: ["React Native", "Expo", "OBD2", "Biometric Auth", "SQLite", "Offline-First", "GPS Tracking", "JavaScript"],
       images: [upstreamInspectionsImage1, upstreamInspectionsImage2],
       scaleX: 1,
       scaleY: 1,
@@ -40,8 +40,9 @@ Key Features:
 
 The app revolutionized field operations by enabling technicians to work in remote locations with limited connectivity, significantly improving productivity and data accuracy. The offline-first approach ensures continuous operation regardless of network conditions.`,
       techStack: [
-        "React Native", "Expo", "TypeScript", "SQLite", "OBD2 Protocol", 
-        "Biometric Authentication", "GPS Tracking", "Offline Sync", "Conflict Resolution"
+        "React Native", "Expo", "TypeScript", "SQLite", "expo-sqlite", 
+        "expo-camera", "expo-image-manipulator", "expo-local-authentication", "expo-secure-store", 
+        "React Navigation", "CryptoJS", "axios", "Azure Functions", "Azure Blob Storage", "Azure SQL Server"
       ],
       links: {
         demo: "#",
@@ -54,7 +55,7 @@ The app revolutionized field operations by enabling technicians to work in remot
       title: "SipOfSilk Coffee Shop",
       description: "Serverless Firebase Functions-based platform with automated scaling. Features coffee menu management with spice level categorization, user authentication with RBAC, and brand-consistent design system with real-time persistence.",
       summary: "Serverless Firebase Functions-based platform with automated scaling. Features coffee menu management with spice level categorization, user authentication with RBAC...",
-      tags: ["React 18+", "Firebase Functions", "Firestore", "Serverless", "RBAC", "Cultural Branding"],
+      tags: ["React 18+", "Firebase", "Firestore", "Serverless", "RBAC", "Cultural Branding", "Material-UI"],
       images: [sipOfSilkImage],
       scaleX: 1.1,
       scaleY: 1.1,
@@ -74,8 +75,8 @@ Key Features:
 
 The platform represents a complete coffee shop management solution that scales automatically based on demand while maintaining cultural authenticity in design and functionality.`,
       techStack: [
-        "React 18+", "Firebase Functions", "Firestore", "Serverless Architecture", 
-        "RBAC", "Material-UI", "Real-time Database", "Cultural Design System"
+        "React 18+", "Firebase Functions", "Firestore", "Firebase Auth", 
+        "Material-UI", "JavaScript", "Node.js"
       ],
       links: {
         demo: "#",
@@ -88,7 +89,7 @@ The platform represents a complete coffee shop management solution that scales a
       title: "Upstream Mobility Platform",
       description: "Real-time analytics and tracking system with Guardian API integration. Features battery health testing, automated certification generation, role-based dashboards, and sales analytics with predictive modeling for 40% dealer efficiency improvement.",
       summary: "Real-time analytics and tracking system with Guardian API integration. Features battery health testing, automated certification generation, role-based dashboards...",
-      tags: ["React", "TypeScript", "Guardian API", "Real-time Analytics", "PDF Generation", "Predictive Modeling"],
+      tags: ["React", "TypeScript", "Real-time Analytics", "PDF Generation", "Predictive Modeling", "Guardian API"],
       images: [upstreamMobilityImage1, upstreamMobilityImage2, upstreamMobilityImage3],
       scaleX: 1.1,
       scaleY: 1.1,
@@ -108,8 +109,8 @@ Key Features:
 
 The platform achieved a 40% improvement in dealer efficiency by providing actionable insights and automating previously manual processes. The predictive modeling capabilities help dealers make informed decisions about inventory and sales strategies.`,
       techStack: [
-        "React", "TypeScript", "Node.js", "Guardian API", "PostgreSQL", 
-        "Real-time Analytics", "PDF Generation", "Predictive Modeling", "Role-based Access"
+        "React", "TypeScript", "Node.js", "Express", "PostgreSQL", 
+        "Guardian API", "PDFKit", "Chart.js", "Recharts", "Styled Components"
       ],
       links: {
         demo: "#",
@@ -122,7 +123,7 @@ The platform achieved a 40% improvement in dealer efficiency by providing action
       title: "ATLAS AI Assistant",
       description: "Cross-platform voice-controlled AI assistant available as both React Native mobile app and Electron.js desktop application. Features Google Gemini integration, comprehensive Windows service architecture, and system automation including power management, window controls, and office automation.",
       summary: "Cross-platform voice-controlled AI assistant (React Native + Electron.js) with Google Gemini integration, Windows service architecture, and comprehensive system automation...",
-      tags: ["Electron.js", "React Native", "Google Gemini AI", "Voice Recognition", "System Automation"],
+      tags: ["Electron.js", "React Native", "Google Gemini AI", "Voice Recognition", "System Automation", "Windows Services"],
       images: [jarvisImage],
       scaleX: 1,
       scaleY: 1,
@@ -143,12 +144,12 @@ Key Features:
 
 The assistant transforms daily computer interactions by enabling hands-free control of system functions, office applications, and productivity tasks through natural speech commands.`,
       techStack: [
-        "Electron.js", "React Native", "Google Gemini AI", "Node.js", "Windows Services", 
-        "Voice Recognition", "System Automation", "C#", "Windows API", "Natural Language Processing"
+        "Electron.js", "React Native", "Google Gemini AI", "Node.js", "Express", 
+        "Azure Speech SDK", "Web Speech API", "C#", ".NET", "Windows API", "PowerShell"
       ],
       links: {
         demo: "#",
-        github: "#",
+        github: "https://github.com/alisid-0/ATLAS-WIN",
         documentation: "#"
       }
     },
@@ -157,7 +158,7 @@ The assistant transforms daily computer interactions by enabling hands-free cont
       title: "Car-ID",
       description: "Enterprise-grade vehicle delivery tracking app that opened new revenue streams. Features user-based workflows for remarketers, inspectors, and delivery drivers with comprehensive liability tracking for vehicle condition management.",
       summary: "Enterprise-grade vehicle delivery tracking app that opened new revenue streams. Features user-based workflows for remarketers, inspectors, and delivery drivers...",
-      tags: ["React Native", "Enterprise", "Workflow Management", "Liability Tracking", "Revenue Generation"],
+      tags: ["React Native", "Enterprise", "Workflow Management", "Liability Tracking", "GPS Tracking", "Push Notifications"],
       images: [firstChoiceImage, butterChickenImage],
       scaleX: 1,
       scaleY: 1,
@@ -177,8 +178,8 @@ Key Features:
 
 The application successfully opened new revenue streams by providing essential tracking and documentation services to the automotive industry, improving operational efficiency and reducing liability risks.`,
       techStack: [
-        "React Native", "Node.js", "PostgreSQL", "AWS", "Image Processing", 
-        "Push Notifications", "GPS Tracking", "Enterprise Integration"
+        "React Native", "Expo", "Node.js", "Express", "PostgreSQL", 
+        "AWS S3", "AWS Lambda", "Firebase Cloud Messaging", "expo-location", "expo-camera"
       ],
       links: {
         demo: "#",
@@ -190,7 +191,7 @@ The application successfully opened new revenue streams by providing essential t
 
   return (
     <ProjectsContainer id="projects">
-      {projects.map((project, index) => (
+      {projects.filter(project => project.id !== 'car-id').map((project, index) => (
         <ProjectSection key={project.id} index={index}>
           <ProjectItem index={index}>
             {/* Image side */}
