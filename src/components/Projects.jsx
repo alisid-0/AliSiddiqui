@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
+import { Link } from 'react-router-dom'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import firstChoiceImage from '../assets/firstchoice.png'
 import butterChickenImage from '../assets/butter.png'
@@ -244,7 +245,7 @@ The application successfully opened new revenue streams by providing essential t
                   ))}
                 </TagContainer>
 
-                <ProjectLink href={project.link}>
+                <ProjectLink to={`/project/${project.id}`}>
                   View Project <ArrowUpRight size={20} weight="bold" />
                 </ProjectLink>
               </motion.div>
@@ -503,7 +504,7 @@ const ProjectImage = styled.img`
   }
 `
 
-const ProjectLink = styled.a`
+const ProjectLink = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;

@@ -1,5 +1,5 @@
+import { Routes, Route } from 'react-router-dom'
 import { ParallaxProvider } from 'react-scroll-parallax'
-import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -7,19 +7,30 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import CursorEffect from './components/CursorEffect'
 import Navigation from './components/Navigation'
+import ProjectDetail from './components/ProjectDetail'
 import './App.css'
 
 function App() {
   return (
     <ParallaxProvider>
-      <Container>
-        <CursorEffect />
-        <Navigation />
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
-      </Container>
+      <Routes>
+        <Route path="/" element={
+          <Container>
+            <CursorEffect />
+            <Navigation />
+            <Hero />
+            <About />
+            <Projects />
+            <Contact />
+          </Container>
+        } />
+        <Route path="/project/:projectId" element={
+          <Container>
+            <CursorEffect />
+            <ProjectDetail />
+          </Container>
+        } />
+      </Routes>
     </ParallaxProvider>
   )
 }

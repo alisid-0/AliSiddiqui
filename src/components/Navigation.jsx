@@ -1,10 +1,24 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const Navigation = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
+
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
-    element?.scrollIntoView({ behavior: 'smooth' })
+    // If we're not on the home page, navigate home first
+    if (location.pathname !== '/') {
+      navigate('/')
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId)
+        element?.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+    } else {
+      const element = document.getElementById(sectionId)
+      element?.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
