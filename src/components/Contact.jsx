@@ -30,7 +30,6 @@ const Contact = () => {
                 <Envelope size={20} weight="bold" />
                 Email
               </SocialLink>
-              <EmailByline>alisiddiquia22@yahoo.com</EmailByline>
             </SocialLinks>
             
             <ResumeSection>
@@ -123,20 +122,6 @@ const SocialLinks = styled.div`
     flex-direction: column;
     gap: 1rem;
     align-items: center;
-  }
-`
-
-const EmailByline = styled.span`
-  display: block;
-  font-size: 0.9rem;
-  color: #888;
-  margin-top: 0.5rem;
-  text-align: center;
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  
-  @media (max-width: 768px) {
-    font-size: 0.8rem;
-    margin-top: 0.3rem;
   }
 `
 

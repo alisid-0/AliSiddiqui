@@ -77,7 +77,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1.0 }}
           >
             <HeroDescription>
-              AI Integration • Enterprise Architecture • Cloud Solutions
+              Enterprise Architecture • Cloud Solutions • AI Integration
             </HeroDescription>
           </motion.div>
 

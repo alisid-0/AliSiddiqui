@@ -1,7 +1,7 @@
 import { Parallax } from 'react-scroll-parallax'
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { Code, Cloud, Terminal, Lightning, Layout, Brain } from '@phosphor-icons/react'
+import { Code, Cloud, Terminal, Lightning, Layout, Brain, GithubLogo } from '@phosphor-icons/react'
 
 const About = () => {
   const skills = [
@@ -25,9 +25,9 @@ const About = () => {
           >
             <SectionTitle>About Me</SectionTitle>
             <AboutText>
-              I&apos;m an enterprise full-stack engineer specializing in AI integration, cloud architecture, and scalable system design. 
-              With expertise spanning from voice-controlled AI assistants to enterprise-grade automotive management systems, 
-              I&apos;ve delivered solutions that have improved operational efficiency by up to 60% across multiple industries.
+              I&apos;m an enterprise full-stack engineer specializing in cross-platform development, cloud architecture, and scalable system design. 
+              With expertise spanning from enterprise-grade automotive management systems to voice-controlled AI assistants, 
+              I&apos;ve delivered solutions that have not only improved operational efficiency across multiple industries but have opened up multiple revenue streams.
             </AboutText>
             
             <SkillsGrid>
@@ -46,6 +46,24 @@ const About = () => {
                 </motion.div>
               ))}
             </SkillsGrid>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <PortfolioSourceContainer>
+              <PortfolioSourceLink 
+                href="https://github.com/alisid-0/AliSiddiqui" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <GithubLogo size={18} weight="bold" />
+                View Portfolio Source Code
+              </PortfolioSourceLink>
+            </PortfolioSourceContainer>
           </motion.div>
         </ContentWrapper>
       </Parallax>
@@ -177,6 +195,40 @@ const SkillName = styled.h3`
   font-weight: 300;
   letter-spacing: 0.2em;
   color: #ccd6f6;
+`
+
+const PortfolioSourceContainer = styled.div`
+  margin-top: 3rem;
+  text-align: center;
+  width: 100%;
+`
+
+const PortfolioSourceLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  letter-spacing: 0.05em;
+  
+  &:hover {
+    color: #64ffda;
+    border-color: #64ffda;
+    background: rgba(100, 255, 218, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(100, 255, 218, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
 `
 
 export default About 
