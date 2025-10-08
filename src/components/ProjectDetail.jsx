@@ -765,7 +765,7 @@ const ImageGallery = styled.div`
 const MonitorFrame = styled(motion.div)`
   position: relative;
   width: 100%;
-  max-width: 700px;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -773,7 +773,7 @@ const MonitorFrame = styled(motion.div)`
   margin: 0 auto;
 
   @media (max-width: 768px) {
-    max-width: 500px;
+    max-width: 600px;
   }
 `
 
@@ -781,11 +781,11 @@ const MonitorScreen = styled.div`
   position: relative;
   width: 100%;
   background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
-  border-radius: 12px;
-  padding: 14px;
+  border-radius: 16px;
+  padding: 22px;
   box-shadow: 
-    0 30px 60px rgba(0, 0, 0, 0.5),
-    0 15px 30px rgba(0, 0, 0, 0.4),
+    0 40px 80px rgba(0, 0, 0, 0.5),
+    0 25px 50px rgba(0, 0, 0, 0.4),
     inset 0 2px 0 rgba(255, 255, 255, 0.1),
     inset 0 -2px 0 rgba(0, 0, 0, 0.5);
   
@@ -796,7 +796,7 @@ const MonitorScreen = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 12px;
+    border-radius: 16px;
     border: 2px solid rgba(255, 255, 255, 0.1);
     pointer-events: none;
   }
@@ -804,47 +804,47 @@ const MonitorScreen = styled.div`
   img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 10px;
     display: block;
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
   }
 
   @media (max-width: 768px) {
-    padding: 10px;
-    border-radius: 10px;
+    padding: 14px;
+    border-radius: 14px;
   }
 `
 
 const MonitorStand = styled.div`
-  width: 70px;
-  height: 50px;
+  width: 110px;
+  height: 78px;
   background: linear-gradient(180deg, #2d2d2d 0%, #1a1a1a 100%);
   margin-top: -1px;
   clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
   box-shadow: 
-    0 5px 15px rgba(0, 0, 0, 0.3),
+    0 8px 22px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
   @media (max-width: 768px) {
-    width: 50px;
-    height: 40px;
+    width: 70px;
+    height: 55px;
   }
 `
 
 const MonitorBase = styled.div`
-  width: 180px;
-  height: 10px;
+  width: 260px;
+  height: 14px;
   background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
-  border-radius: 5px;
+  border-radius: 7px;
   margin-top: -1px;
   box-shadow: 
-    0 8px 20px rgba(0, 0, 0, 0.4),
+    0 12px 30px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
     inset 0 -1px 0 rgba(0, 0, 0, 0.5);
 
   @media (max-width: 768px) {
-    width: 130px;
-    height: 8px;
+    width: 170px;
+    height: 12px;
   }
 `
 

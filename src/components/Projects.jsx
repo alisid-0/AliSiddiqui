@@ -214,13 +214,19 @@ The application successfully opened new revenue streams by providing essential t
                     <IPhoneNotch />
                   </IPhoneFrame>
                 ) : (
-                  <ProjectImage 
-                    src={project.images ? project.images[0] : butterChickenImage} 
-                    alt={project.title}
-                    isPortrait={project.layout === 'portrait'}
-                    scaleX={project.scaleX}
-                    scaleY={project.scaleY}
-                  />
+                  <MonitorFrame>
+                    <MonitorScreen>
+                      <ProjectImage 
+                        src={project.images ? project.images[0] : butterChickenImage} 
+                        alt={project.title}
+                        isPortrait={project.layout === 'portrait'}
+                        scaleX={project.scaleX}
+                        scaleY={project.scaleY}
+                      />
+                    </MonitorScreen>
+                    <MonitorStand />
+                    <MonitorBase />
+                  </MonitorFrame>
                 )}
               </motion.div>
             </ImageSide>
@@ -489,18 +495,14 @@ const ProjectImage = styled.img`
   width: ${props => props.isPortrait ? '100%' : '100%'};
   height: ${props => props.isPortrait ? '100%' : 'auto'};
   object-fit: ${props => props.isPortrait ? 'cover' : 'contain'};
-  border-radius: ${props => props.isPortrait ? '0' : '20px'};
-  box-shadow: ${props => props.isPortrait ? 'none' : 
-    `0 25px 50px rgba(0, 0, 0, 0.3),
-    0 10px 25px rgba(0, 0, 0, 0.2)`};
+  border-radius: ${props => props.isPortrait ? '0' : '8px'};
+  box-shadow: ${props => props.isPortrait ? 'none' : 'inset 0 0 20px rgba(0, 0, 0, 0.3)'};
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform: scale(${props => props.scaleX || 1}, ${props => props.scaleY || 1});
+  display: block;
   
   &:hover {
-    transform: scale(${props => (props.scaleX || 1) * 1.03}, ${props => (props.scaleY || 1) * 1.03});
-    box-shadow: ${props => props.isPortrait ? 'none' :
-      `0 30px 60px rgba(0, 0, 0, 0.35),
-      0 15px 30px rgba(0, 0, 0, 0.25)`};
+    transform: scale(${props => (props.scaleX || 1) * 1.02}, ${props => (props.scaleY || 1) * 1.02});
   }
 `
 
@@ -637,6 +639,96 @@ const IPhoneNotch = styled.div`
     height: 12px;
     background: radial-gradient(circle, rgba(100, 150, 255, 0.3) 0%, transparent 70%);
     border-radius: 50%;
+  }
+`
+
+const MonitorFrame = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: perspective(1200px) rotateY(-3deg) rotateX(1deg);
+  
+  &:hover {
+    transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1.02);
+  }
+
+  @media (max-width: 768px) {
+    max-width: 700px;
+  }
+`
+
+const MonitorScreen = styled.div`
+  position: relative;
+  width: 100%;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 
+    0 40px 80px rgba(0, 0, 0, 0.5),
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.5);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    padding: 16px;
+    border-radius: 14px;
+  }
+`
+
+const MonitorStand = styled.div`
+  width: 120px;
+  height: 85px;
+  background: linear-gradient(180deg, #2d2d2d 0%, #1a1a1a 100%);
+  margin-top: -1px;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+  box-shadow: 
+    0 8px 22px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 60px;
+  }
+`
+
+const MonitorBase = styled.div`
+  width: 280px;
+  height: 16px;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  border-radius: 8px;
+  margin-top: -1px;
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    width: 190px;
+    height: 14px;
   }
 `
 
