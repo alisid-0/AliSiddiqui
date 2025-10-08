@@ -51,6 +51,82 @@ The app revolutionized field operations by enabling technicians to work in remot
         demo: "#",
         github: "#",
         documentation: "#"
+      },
+      architecture: {
+        title: "UPSTREAM INSPECTIONS MOBILE - COMPLETE ARCHITECTURE BREAKDOWN",
+        layers: [
+          {
+            title: "LAYER 1: REACT NATIVE + EXPO FRAMEWORK (App.js)",
+            description: "Framework: React Native 0.81.4 + Expo SDK 54\nCreates a cross-platform mobile app (iOS & Android)\nUses Expo managed workflow for development and deployment\nApp runs on device with native capabilities exposed via Expo modules\nEntry point: node_modules/expo/AppEntry.js\nCurrent version: 4.0.5"
+          },
+          {
+            title: "LAYER 2: NAVIGATION ARCHITECTURE (App.js)",
+            description: "Two-tier navigation system using React Navigation:\n\nSTACK NAVIGATOR (Outer layer):\nControls authentication flow\nConditionally renders based on isLoggedIn state\nPre-auth: Login → Register → Account Settings\nPost-auth: Main (TabNavigator) + all inspection screens\n\nBOTTOM TAB NAVIGATOR (Inner layer - MainTabScreen):\nHome (Queues view) - Car icon\nNew Inspection - Add circle icon\nProfile - Person icon\nUses BlurView background on iOS for frosted glass effect\nCustom styling with rounded corners and transparent backdrop\n\nSTACK SCREENS (Post-authentication):\nInspection workflow: Edit → Options → Info → Damages → Paints → Tires → Keys → Photos → Videos → Complete\nUtility: Camera, Queues, Account Settings, Unavailable"
+          },
+          {
+            title: "LAYER 3: GLOBAL STATE MANAGEMENT (Context.js)",
+            description: "Uses React Context API for app-wide state - 1,875 lines of state logic\n\nSTATE CATEGORIES:\nUser State:\nuser, firstName, lastName, isLoggedIn, userFunction, env\nuserDetails (full profile with address, phone, title, etc.)\n\nInspection State (70+ fields):\nBasic: vin, inspectionID, inspectionStatus, localStatus\nVehicle: year, make, model, trim, stockNumber, bodyType, doors\nTechnical: cylinders, displacement, transmission, driveType, fuelType\nAssessment: odometer, interiorColor, exteriorColor, engineStarts, driveable\nLocation: customer, customerID, lotLocation, orderDate\n\nFindings State:\ndamagesList: [{Type, Location, Condition, Severity, ImageURL, ImageBase64}]\npaintsList: [{Location, Condition, ImageURL}]\nkeysList: [{Type, Quantity}]\nOBD2List: [{CODE_TYPE, OBD2_CODE, OBD2_DESC}]\noptions: {AC, CRUISE_CONTROL, POWER_WINDOWS, etc. - 23 options}\n\nTires State:\ntiresMatch boolean\ncond/man/tread/size objects with LF/LR/RF/RR/SP properties\n\nPhotos State:\nphotos: 10 predefined positions (Front, Rear, Sides, VIN, Odometer)\nphotosAdditional: unlimited additional photos\nEach photo: {VIN, Inspection_ID, SortIndex, Location, Description, ImageURL, ImageBase64, DateCreated}\n\nVideo State:\nvideoURL, videoBase64"
+          },
+          {
+            title: "LAYER 4: LOCAL DATABASE (SQLite via expo-sqlite)",
+            description: "Client-side persistence using SQLite database: \"UpstreamInspections.db\"\n\n8 TABLES STRUCTURE:\nINSPECTIONS (Primary table - 70+ columns):\nPrimary Key: VIN (unique)\nContains all vehicle and inspection data\nTracks Local_Status: INCOMPLETE / AWAITING SYNC / SYNCED\nTracks Inspection_Status: PENDING / ESTIMATION / COMPLETE\nIncludes device metadata (Device_Type, OS, App_Version, Network_Type)\nStores VIDEO_BASE64 (can be large)\n\nDAMAGES:\nPrimary Key: ImageURL\nLinked to VIN\nFields: Type, Description, Condition, Severity, ConditionCode, SeverityCode\nImageBase64 stored locally, ImageURL for server images\nImageFormatFlag: 'Local' or 'Server'\n\nPAINTS:\nPrimary Key: ImageURL\nPrior paint damage tracking\nFields: Location, Condition, DamageCode, ImageBase64\n\nKEYS:\nPrimary Key: Type\nTracks key types and quantities\n\nOBD2_CODES:\nAuto-incrementing ID\nDiagnostic codes: CODE_TYPE, OBD2_CODE, OBD2_DESC\n\nOBD2_PHOTOS:\nPhotos of OBD2 scanner screen\n\nOPTIONS:\nVehicle features (AC, Power Windows, Navigation, etc.)\nEach option is a separate row\n\nPHOTOS:\nPrimary Key: ImageURL\nSortIndex determines position (1-10 required, 11+ additional)\nSupports both Local (ImageBase64) and Server (ImageURL) images"
+          },
+          {
+            title: "LAYER 5: AUTHENTICATION & SECURITY (LoginScreen.js)",
+            description: "Multi-factor authentication system:\n\nBIOMETRIC AUTHENTICATION (Face ID / Fingerprint):\nUses expo-local-authentication\nChecks for hardware support\nAttempts biometric login on app launch\nCredentials stored securely in expo-secure-store (OS keychain)\nFalls back to manual login if biometric fails\n\nPASSWORD AUTHENTICATION:\nUsername + Password sent to Azure backend\nPassword hashed using CryptoJS.SHA256 before transmission\nEndpoint: AuthenticateInspectorMobileApp\nResponse codes:\n0/Y: Success → set isLoggedIn = true\n1: User doesn't exist\n3: Password is NULL (needs first-time setup)\n4: Incorrect credentials\n2: Server error\n\nSESSION MANAGEMENT:\nSuccessful login saves credentials to SecureStore\nUser context (userDetails) stored in memory\nNo token system - relies on credential storage"
+          },
+          {
+            title: "LAYER 6: BACKEND API COMMUNICATION (Functions.js)",
+            description: "Azure Functions HTTP API integration:\n\nCONFIGURATION:\nDevelopment: https://upstreaminspections-ws-dev.azurewebsites.net/api/\nProduction: https://upstreaminspections-ws.azurewebsites.net/api/\nEach request includes API code and clientId=InspectionsMobileApp\n\nKEY ENDPOINTS:\nAuthentication:\nAuthenticateInspectorMobileApp (POST)\nPassword hashing: SHA256(password)\n\nVehicle Data:\nDecodeVIN (POST) - Gets vehicle specs from VIN\nReturns: year, make, model, trim, body_type, engine specs, transmission\n\nInspection Management:\nCreateNewInspection (POST)\ngetInspectionCrByInspectionId (POST) - Fetch complete inspection\ngetVehiclesByStatusAndInspectorSummarized (POST) - Queue listings\nupdateInspectionToPendingStatus (POST)\nmarkInspectionAsComplete (POST)\nmarkInspectionAsUnavailable (POST)\n\nPicklist Data:\ngetPicklist (POST) - Dropdown options (colors, tire conditions, etc.)\npicklistGetDamages (POST) - Hierarchical damage codes\nStep 1: Get locations by classification (EXT/INT/MECH)\nStep 2: Get conditions by location\nStep 3: Get severity by condition\n\nFile Upload:\nuploadToAzureBlobStorage (POST) - Multipart form data\nUsed for syncing complete inspections with photos/videos"
+          },
+          {
+            title: "LAYER 7: CAMERA & MEDIA CAPTURE (camera.js)",
+            description: "Custom camera implementation using expo-camera:\n\nCAPABILITIES:\nPhoto capture (3024x4032 or device max)\nVideo recording (up to 60 seconds, auto-stop)\nFront/back camera flip\nFlash control (on/off)\nTap-to-focus\nReal-time recording timer display\n\nPERMISSIONS REQUIRED:\nCamera, Microphone, Media Library\nRequested on component mount\nBlocks usage if not granted\n\nPHOTO FLOW:\ntakePictureAsync() captures image\nImage saved to device gallery (MediaLibrary.createAssetAsync)\nAlbum created: \"UpstreamInspections\" (if doesn't exist)\nURI stored in photos state\nImageBase64 left empty initially (filled on sync for bandwidth)\nNavigation back to calling screen with photo URI\n\nVIDEO FLOW:\nrecordAsync() starts recording\nStop recording after user tap or 60-second timeout\nVideo saved to gallery\nvideoURL updated in context\nNavigate to InspectionVideo screen for review"
+          },
+          {
+            title: "LAYER 8: INSPECTION WORKFLOW",
+            description: "Multi-step inspection process:\n\nSTEP 1: NEW INSPECTION (NewInspectionScreen.js)\nEnter/scan VIN (17 characters)\nCall DecodeVIN API → auto-populate vehicle specs\nManual entry for missing fields\nSelect inspector (customer)\nNavigate to Info screen to continue\n\nSTEP 2: VEHICLE INFORMATION (Info.js)\nOdometer reading\nInterior/Exterior colors\nEngine condition (starts/doesn't start)\nDriveable status\nOil condition, odor\n\nSTEP 3: OPTIONS (Options.js)\nChecklist of 23 vehicle features\nCheckbox toggle for each option\nStored as individual rows in OPTIONS table\n\nSTEP 4: DAMAGES (Damages.js)\nClassification: Exterior/Interior/Mechanical\nLocation picker (hierarchical based on classification)\nCondition picker (depends on location)\nSeverity picker (depends on condition)\nCamera capture for each damage\nDamage list with edit/delete\n\"No damage\" checkboxes to skip categories\n\nSTEP 5-13: PAINTS → TIRES → KEYS → AUTOGRADE → OBD2 → PHOTOS → ADDITIONAL PHOTOS → VIDEO → COMPLETE\nEach step follows similar pattern: data collection → validation → storage → navigation"
+          },
+          {
+            title: "LAYER 9: QUEUE MANAGEMENT & SYNC (Queues.js)",
+            description: "Central hub for inspection management - 1,609 lines\n\nTHREE QUEUE TYPES:\nINCOMPLETE (Local SQLite):\nInspections started but not completed\nLocal_Status = 'INCOMPLETE'\nEditable, deletable\nClicking loads inspection into context\n\nPENDING (Server):\nFetched from backend: InspectionStatus = 'PENDING'\nAssigned to this inspector\nClick to download and start work\nfetchInspectionData() pulls complete data\nCreates local SQLite entry with Local_Status = 'INCOMPLETE'\n\nAWAITING SYNC (Local SQLite):\nCompleted inspections waiting to upload\nLocal_Status = 'AWAITING SYNC'\nClicking blocked (or warns in dev mode)\nSync button visible\n\nSYNC PROCESS:\nUser taps sync button → Alert confirmation\nCheck internet connectivity (expo-network)\nBuild inspection JSON from SQLite tables\nCompress images:\nRead ImageBase64 or convert from ImageURL\nResize to max 1920x1080 using expo-image-manipulator\nQuality 0.5 JPEG compression\nEncode as base64\nBuild multipart form data:\ninspectionJson: all data\nphotos: array of base64 images\ndamages: array of base64 images\npaints: array of base64 images\nvideo: base64 video file\nPOST to uploadToAzureBlobStorage\nBackend processes and stores in Azure Blob Storage + SQL Server\nOn success: deleteInspection() removes from SQLite\nOn failure: keep local data, show error Toast"
+          },
+          {
+            title: "LAYER 10: NOTIFICATIONS SYSTEM (HomeScreen.js + App.js)",
+            description: "Expo Notifications for sync reminders:\n\nNOTIFICATION HANDLER:\nSet in App.js on launch\nShows alert, plays sound, sets badge\n\nSCHEDULING LOGIC:\nTriggered when Local_Status = 'AWAITING SYNC' exists\nUses moment-timezone for America/Chicago timezone\nSchedules first notification at next half-hour mark\nRepeating notification every 30 minutes\nStops at 9 PM Central Time\nCancels all if no unsynced inspections\n\nNOTIFICATION CONTENT:\nTitle: \"Inspections waiting to be synced!\"\nBody: \"Tap here to view your unsynced inspections...\"\nData: {screen: 'Queues', passedQueue: 'AWAITING SYNC'}\n\nTAP HANDLING:\nresponseListener in App.js\nExtracts screen and passedQueue from data\nnavigationRef.navigate(screen, {passedQueue})\nOpens Queues screen filtered to AWAITING SYNC\n\nBACKGROUND TASK:\nTaskManager.defineTask for background notifications\nNOTIFICATION_TASK handles notification in background"
+          }
+        ],
+        technologies: {
+          frontend: ["React Native 0.81.4", "Expo SDK 54", "React Navigation 6", "React Context API"],
+          database: ["SQLite", "expo-sqlite 16.0.8", "Local Storage", "Offline-First Architecture"],
+          media: ["expo-camera 17.0.8", "expo-image-manipulator 14.0.7", "expo-media-library 18.2.0"],
+          security: ["expo-local-authentication 17.0.7", "expo-secure-store 15.0.7", "CryptoJS SHA256"],
+          backend: ["Azure Functions", "Azure Blob Storage", "Azure SQL Server", "Multipart Upload"],
+          networking: ["axios 1.6.7", "expo-network 8.0.7", "HTTP REST APIs"],
+          notifications: ["expo-notifications 0.32.12", "expo-task-manager 14.0.7", "Background Tasks"]
+        },
+        flowExample: {
+          command: "Complete Vehicle Inspection Workflow",
+          steps: [
+            "USER LOGS IN with biometric authentication",
+            "APP STORES credentials in SecureStore (OS keychain)",
+            "USER SCANS VIN and calls DecodeVIN API",
+            "VEHICLE SPECS auto-populate from VIN database",
+            "USER COMPLETES 13-step inspection workflow",
+            "ALL DATA stored locally in SQLite database",
+            "PHOTOS saved to device gallery with URIs",
+            "VIDEO recorded and stored locally",
+            "INSPECTION marked as AWAITING SYNC",
+            "NOTIFICATIONS scheduled every 30 minutes",
+            "USER TAPS SYNC when internet available",
+            "IMAGES compressed and converted to base64",
+            "MULTIPART FORM DATA built with all inspection data",
+            "UPLOAD sent to Azure Functions endpoint",
+            "BACKEND stores in Azure Blob Storage + SQL Server",
+            "LOCAL DATA deleted after successful sync",
+            "INSPECTION available for review and processing"
+          ]
+        }
       }
     },
     "sipofsilk": {
