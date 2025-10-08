@@ -13,14 +13,49 @@ import sipOfSilkImage from '../assets/sipofsilk/Screenshot 2025-10-07 151211.png
 const Projects = () => {
   const projects = [
     {
+      id: "upstream-inspections",
+      title: "Upstream Inspections Mobile App",
+      description: "Cross-platform React Native field solution with offline-first inspection workflow and conflict resolution. Features OBD2 integration, biometric authentication, GPS tracking, and sophisticated SQLite sync algorithms for complete offline functionality.",
+      summary: "Cross-platform React Native field solution with offline-first inspection workflow and conflict resolution. Features OBD2 integration, biometric authentication...",
+      tags: ["React Native", "Expo", "OBD2", "Biometric Auth", "SQLite", "Offline-First"],
+      images: [upstreamInspectionsImage1, upstreamInspectionsImage2],
+      scaleX: 1,
+      scaleY: 1,
+      link: "#",
+      gradient: "linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.1) 100%)",
+      impact: "Enabled complete offline field operations",
+      category: "Mobile Enterprise",
+      layout: "portrait", // Special layout flag for 2-column design
+      detailedDescription: `Upstream Inspections Mobile App is a comprehensive field inspection solution built with React Native and Expo. The application provides complete offline functionality, allowing field technicians to conduct inspections without internet connectivity.
+
+Key Features:
+• Offline-first architecture with sophisticated SQLite sync algorithms
+• OBD2 integration for vehicle diagnostics and data collection
+• Biometric authentication for secure access
+• GPS tracking for location-based inspections
+• Conflict resolution system for data synchronization
+• Real-time data capture and validation
+
+The app revolutionized field operations by enabling technicians to work in remote locations with limited connectivity, significantly improving productivity and data accuracy. The offline-first approach ensures continuous operation regardless of network conditions.`,
+      techStack: [
+        "React Native", "Expo", "TypeScript", "SQLite", "OBD2 Protocol", 
+        "Biometric Authentication", "GPS Tracking", "Offline Sync", "Conflict Resolution"
+      ],
+      links: {
+        demo: "#",
+        github: "#",
+        documentation: "#"
+      }
+    },
+    {
       id: "sipofsilk",
       title: "SipOfSilk Coffee Shop",
       description: "Serverless Firebase Functions-based platform with automated scaling. Features coffee menu management with spice level categorization, user authentication with RBAC, and brand-consistent design system with real-time persistence.",
       summary: "Serverless Firebase Functions-based platform with automated scaling. Features coffee menu management with spice level categorization, user authentication with RBAC...",
       tags: ["React 18+", "Firebase Functions", "Firestore", "Serverless", "RBAC", "Cultural Branding"],
       images: [sipOfSilkImage],
-      scaleX: 2,
-      scaleY: 2,
+      scaleX: 1.1,
+      scaleY: 1.1,
       link: "#",
       gradient: "linear-gradient(135deg, rgba(46, 204, 113, 0.15) 0%, rgba(39, 174, 96, 0.1) 100%)",
       impact: "Complete coffee shop management system",
@@ -53,8 +88,8 @@ The platform represents a complete coffee shop management solution that scales a
       summary: "Real-time analytics and tracking system with Guardian API integration. Features battery health testing, automated certification generation, role-based dashboards...",
       tags: ["React", "TypeScript", "Guardian API", "Real-time Analytics", "PDF Generation", "Predictive Modeling"],
       images: [upstreamMobilityImage1, upstreamMobilityImage2, upstreamMobilityImage3],
-      scaleX: 2,
-      scaleY: 2,
+      scaleX: 1.1,
+      scaleY: 1.1,
       link: "#",
       gradient: "linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(0, 242, 254, 0.1) 100%)",
       impact: "40% dealer efficiency improvement",
@@ -147,41 +182,6 @@ The application successfully opened new revenue streams by providing essential t
         github: "#",
         documentation: "#"
       }
-    },
-    {
-      id: "upstream-inspections",
-      title: "Upstream Inspections Mobile App",
-      description: "Cross-platform React Native field solution with offline-first inspection workflow and conflict resolution. Features OBD2 integration, biometric authentication, GPS tracking, and sophisticated SQLite sync algorithms for complete offline functionality.",
-      summary: "Cross-platform React Native field solution with offline-first inspection workflow and conflict resolution. Features OBD2 integration, biometric authentication...",
-      tags: ["React Native", "Expo", "OBD2", "Biometric Auth", "SQLite", "Offline-First"],
-      images: [upstreamInspectionsImage1, upstreamInspectionsImage2],
-      scaleX: 1,
-      scaleY: 1,
-      link: "#",
-      gradient: "linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.1) 100%)",
-      impact: "Enabled complete offline field operations",
-      category: "Mobile Enterprise",
-      layout: "portrait", // Special layout flag for 2-column design
-      detailedDescription: `Upstream Inspections Mobile App is a comprehensive field inspection solution built with React Native and Expo. The application provides complete offline functionality, allowing field technicians to conduct inspections without internet connectivity.
-
-Key Features:
-• Offline-first architecture with sophisticated SQLite sync algorithms
-• OBD2 integration for vehicle diagnostics and data collection
-• Biometric authentication for secure access
-• GPS tracking for location-based inspections
-• Conflict resolution system for data synchronization
-• Real-time data capture and validation
-
-The app revolutionized field operations by enabling technicians to work in remote locations with limited connectivity, significantly improving productivity and data accuracy. The offline-first approach ensures continuous operation regardless of network conditions.`,
-      techStack: [
-        "React Native", "Expo", "TypeScript", "SQLite", "OBD2 Protocol", 
-        "Biometric Authentication", "GPS Tracking", "Offline Sync", "Conflict Resolution"
-      ],
-      links: {
-        demo: "#",
-        github: "#",
-        documentation: "#"
-      }
     }
   ]
 
@@ -197,15 +197,30 @@ The app revolutionized field operations by enabling technicians to work in remot
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: false, margin: "-100px" }}
-                style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0 }}
               >
-                <ProjectImage 
-                  src={project.images ? project.images[0] : butterChickenImage} 
-                  alt={project.title}
-                  isPortrait={project.layout === 'portrait'}
-                  scaleX={project.scaleX}
-                  scaleY={project.scaleY}
-                />
+                {project.layout === 'portrait' ? (
+                  <IPhoneFrame>
+                    <IPhoneScreen>
+                      <ProjectImage 
+                        src={project.images ? project.images[0] : butterChickenImage} 
+                        alt={project.title}
+                        isPortrait={project.layout === 'portrait'}
+                        scaleX={project.scaleX}
+                        scaleY={project.scaleY}
+                      />
+                    </IPhoneScreen>
+                    <IPhoneNotch />
+                  </IPhoneFrame>
+                ) : (
+                  <ProjectImage 
+                    src={project.images ? project.images[0] : butterChickenImage} 
+                    alt={project.title}
+                    isPortrait={project.layout === 'portrait'}
+                    scaleX={project.scaleX}
+                    scaleY={project.scaleY}
+                  />
+                )}
               </motion.div>
             </ImageSide>
 
@@ -262,57 +277,65 @@ const ProjectSection = styled.section`
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 4rem 2rem;
+  padding: 4rem 4rem;
   background: ${props => backgroundColors[props.index % backgroundColors.length]};
   transition: background 0.6s ease;
   
   @media (max-width: 1600px) {
-    padding: 4rem 1.5rem;
+    padding: 4rem 3rem;
+  }
+  
+  @media (max-width: 1024px) {
+    padding: 3rem 2rem;
   }
   
   @media (max-width: 768px) {
     min-height: auto;
-    padding: 3rem 1rem;
+    padding: 3rem 1.5rem;
   }
 `
 
 const ProjectItem = styled.div`
-  max-width: 100%;
-  width: 95%;
+  max-width: 1900px;
+  width: 100%;
   display: grid;
-  grid-template-columns: ${props => props.index % 2 === 0 ? '1fr 1fr' : '1fr 1fr'};
-  gap: 6rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
   align-items: center;
   
   @media (max-width: 1600px) {
-    width: 92%;
-    gap: 5rem;
+    gap: 3rem;
   }
   
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
     gap: 2rem;
-    width: 85%;
   }
   
   @media (max-width: 768px) {
-    width: 90%;
     gap: 2rem;
   }
 `
 
 const ImageSide = styled.div`
-  order: ${props => props.index % 2 === 0 ? '1' : '2'};
+  grid-column: ${props => props.index % 2 === 0 ? '1 / 3' : '2 / 4'};
+  grid-row: 1;
   width: 100%;
-  height: 600px;
+  height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 1;
+  padding: 0;
+  
+  @media (max-width: 1600px) {
+    height: 600px;
+  }
   
   @media (max-width: 1024px) {
-    order: 1;
+    grid-column: 1 / -1;
+    grid-row: auto;
     height: 500px;
   }
   
@@ -322,17 +345,23 @@ const ImageSide = styled.div`
 `
 
 const ContentSide = styled.div`
-  order: ${props => props.index % 2 === 0 ? '2' : '1'};
-  padding: 2rem 3rem;
+  grid-column: ${props => props.index % 2 === 0 ? '3 / 4' : '1 / 2'};
+  grid-row: 1;
+  padding: ${props => props.index % 2 === 0 ? '3rem 2rem 3rem 3rem' : '3rem 3rem 3rem 2rem'};
   position: relative;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   
   @media (max-width: 1600px) {
-    padding: 2rem 2rem;
+    padding: ${props => props.index % 2 === 0 ? '2rem 1.5rem 2rem 2rem' : '2rem 2rem 2rem 1.5rem'};
   }
   
   @media (max-width: 1024px) {
-    order: 2;
+    grid-column: 1 / -1;
+    grid-row: auto;
     padding: 1rem 0;
   }
 `
@@ -345,6 +374,7 @@ const ProjectNumber = styled.div`
   letter-spacing: 0.2em;
   position: relative;
   z-index: 10;
+  text-align: left;
 `
 
 const ProjectCategory = styled.div`
@@ -356,6 +386,7 @@ const ProjectCategory = styled.div`
   margin-bottom: 1rem;
   position: relative;
   z-index: 10;
+  text-align: left;
 `
 
 const ProjectTitle = styled.h2`
@@ -367,6 +398,7 @@ const ProjectTitle = styled.h2`
   letter-spacing: -0.02em;
   position: relative;
   z-index: 10;
+  text-align: left;
   
   @media (max-width: 1024px) {
     font-size: 2.5rem;
@@ -385,6 +417,7 @@ const ProjectImpact = styled.div`
   font-style: italic;
   position: relative;
   z-index: 10;
+  text-align: left;
   
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -400,6 +433,7 @@ const ProjectDescription = styled.p`
   max-width: 100%;
   position: relative;
   z-index: 10;
+  text-align: left;
   
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -415,6 +449,7 @@ const TagContainer = styled.div`
   margin-bottom: 2.5rem;
   position: relative;
   z-index: 10;
+  justify-content: flex-start;
   
   @media (max-width: 768px) {
     gap: 0.5rem;
@@ -450,21 +485,21 @@ const Tag = styled.span`
 const ProjectImage = styled.img`
   max-width: 100%;
   max-height: 100%;
-  width: ${props => props.isPortrait ? 'auto' : '100%'};
+  width: ${props => props.isPortrait ? '100%' : '100%'};
   height: ${props => props.isPortrait ? '100%' : 'auto'};
-  object-fit: contain;
-  border-radius: 20px;
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.3),
-    0 10px 25px rgba(0, 0, 0, 0.2);
+  object-fit: ${props => props.isPortrait ? 'cover' : 'contain'};
+  border-radius: ${props => props.isPortrait ? '0' : '20px'};
+  box-shadow: ${props => props.isPortrait ? 'none' : 
+    `0 25px 50px rgba(0, 0, 0, 0.3),
+    0 10px 25px rgba(0, 0, 0, 0.2)`};
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform: scale(${props => props.scaleX || 1}, ${props => props.scaleY || 1});
   
   &:hover {
     transform: scale(${props => (props.scaleX || 1) * 1.03}, ${props => (props.scaleY || 1) * 1.03});
-    box-shadow: 
-      0 30px 60px rgba(0, 0, 0, 0.35),
-      0 15px 30px rgba(0, 0, 0, 0.25);
+    box-shadow: ${props => props.isPortrait ? 'none' :
+      `0 30px 60px rgba(0, 0, 0, 0.35),
+      0 15px 30px rgba(0, 0, 0, 0.25)`};
   }
 `
 
@@ -503,6 +538,104 @@ const ProjectLink = styled.a`
   @media (max-width: 768px) {
     padding: 0.8rem 1.5rem;
     font-size: 0.9rem;
+  }
+`
+
+const IPhoneFrame = styled.div`
+  position: relative;
+  width: 320px;
+  height: 650px;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  border-radius: 45px;
+  padding: 12px;
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 15px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+  
+  &:hover {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
+    box-shadow: 
+      0 40px 80px rgba(0, 0, 0, 0.6),
+      0 20px 40px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 45px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+  
+  @media (max-width: 768px) {
+    width: 280px;
+    height: 570px;
+    border-radius: 40px;
+  }
+`
+
+const IPhoneScreen = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  border-radius: 38px;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 38px;
+  }
+`
+
+const IPhoneNotch = styled.div`
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 30px;
+  background: #000000;
+  border-radius: 0 0 20px 20px;
+  z-index: 10;
+  box-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.5),
+    inset 0 -2px 5px rgba(255, 255, 255, 0.05);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, rgba(100, 150, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
   }
 `
 
