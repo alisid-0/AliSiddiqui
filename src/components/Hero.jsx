@@ -21,7 +21,6 @@ const lineAnimation = {
 const Hero = () => {
   return (
     <HeroSection id="home">
-      <GradientOverlay />
       <GridTexture />
       <Parallax translateY={[-20, 20]}>
         <HeroContent>
@@ -112,6 +111,22 @@ const HeroSection = styled.section`
   background: transparent;
   overflow: hidden;
   z-index: 1;
+  
+  /* Ensure seamless blending with dynamic gradient */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, 
+      transparent 0%, 
+      rgba(10, 25, 47, 0.1) 50%, 
+      transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
 `
 
 const GridTexture = styled.div`
@@ -120,20 +135,13 @@ const GridTexture = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(#20407e20 1px, transparent 1px),
-    linear-gradient(90deg, #20407e20 1px, transparent 1px);
-  background-size: 30px 30px;
-  opacity: 0.15;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.3;
+  z-index: 1;
 `
 
-const GradientOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 50% 50%, transparent 0%, #0a192f 70%);
-`
 
 const HeroContent = styled.div`
   position: relative;

@@ -24,7 +24,7 @@ const Projects = () => {
       scaleX: 1,
       scaleY: 1,
       link: "#",
-      gradient: "linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.1) 100%)",
+      gradient: "transparent",
       impact: "Enabled complete offline field operations",
       category: "Mobile Enterprise",
       layout: "portrait", // Special layout flag for 2-column design
@@ -59,7 +59,7 @@ The app revolutionized field operations by enabling technicians to work in remot
       scaleX: 1.1,
       scaleY: 1.1,
       link: "#",
-      gradient: "linear-gradient(135deg, rgba(46, 204, 113, 0.15) 0%, rgba(39, 174, 96, 0.1) 100%)",
+      gradient: "transparent",
       impact: "Complete coffee shop management system",
       category: "Serverless Platform",
       detailedDescription: `SipOfSilk Coffee Shop is a comprehensive serverless platform built with Firebase Functions and Firestore. The application provides complete coffee shop management with cultural branding and automated scaling capabilities.
@@ -93,7 +93,7 @@ The platform represents a complete coffee shop management solution that scales a
       scaleX: 1.1,
       scaleY: 1.1,
       link: "#",
-      gradient: "linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(0, 242, 254, 0.1) 100%)",
+      gradient: "transparent",
       impact: "40% dealer efficiency improvement",
       category: "Enterprise Analytics",
       detailedDescription: `Upstream Mobility Platform is a comprehensive analytics and tracking system designed for automotive dealerships. The platform integrates with Guardian API to provide real-time insights into vehicle performance, battery health, and dealer operations.
@@ -127,7 +127,7 @@ The platform achieved a 40% improvement in dealer efficiency by providing action
       scaleX: 1,
       scaleY: 1,
       link: "#",
-      gradient: "linear-gradient(135deg, rgba(240, 147, 251, 0.15) 0%, rgba(245, 87, 108, 0.1) 100%)",
+      gradient: "transparent",
       impact: "Personal productivity assistant",
       category: "AI Innovation",
       detailedDescription: `ATLAS AI Assistant is a comprehensive voice-controlled AI system built with Google Gemini integration. Available as both a React Native mobile app and an Electron.js desktop application, it provides seamless Windows system automation and office productivity features through natural language processing. The showcase demonstrates the Electron.js desktop version.
@@ -162,7 +162,7 @@ The assistant transforms daily computer interactions by enabling hands-free cont
       scaleX: 1,
       scaleY: 1,
       link: "#",
-      gradient: "linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(255, 69, 0, 0.1) 100%)",
+      gradient: "transparent",
       impact: "Opened new revenue streams",
       category: "Enterprise Revenue",
       detailedDescription: `Car-ID is an enterprise-grade vehicle delivery tracking application designed to streamline automotive logistics and create new revenue opportunities. The platform serves multiple user types with specialized workflows and comprehensive liability management.
@@ -265,14 +265,7 @@ The application successfully opened new revenue streams by providing essential t
   )
 }
 
-// Background colors that change based on scroll position
-const backgroundColors = [
-  'linear-gradient(135deg, rgba(46, 204, 113, 0.08) 0%, rgba(39, 174, 96, 0.05) 100%)',
-  'linear-gradient(135deg, rgba(79, 172, 254, 0.08) 0%, rgba(0, 242, 254, 0.05) 100%)',
-  'linear-gradient(135deg, rgba(240, 147, 251, 0.08) 0%, rgba(245, 87, 108, 0.05) 100%)',
-  'linear-gradient(135deg, rgba(255, 140, 0, 0.08) 0%, rgba(255, 69, 0, 0.05) 100%)',
-  'linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.05) 100%)',
-]
+// Dynamic gradient is now handled by the main App component
 
 const ProjectsContainer = styled.div`
   width: 100%;
@@ -287,7 +280,7 @@ const ProjectSection = styled.section`
   justify-content: center;
   position: relative;
   padding: 4rem 4rem;
-  background: ${props => backgroundColors[props.index % backgroundColors.length]};
+  background: transparent;
   transition: background 0.6s ease;
   
   @media (max-width: 1600px) {

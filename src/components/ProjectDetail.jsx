@@ -27,7 +27,7 @@ const ProjectDetail = () => {
       description: "Cross-platform React Native field solution with offline-first inspection workflow and conflict resolution. Features OBD2 integration, biometric authentication, GPS tracking, and sophisticated SQLite sync algorithms for complete offline functionality.",
       tags: ["React Native", "Expo", "OBD2", "Biometric Auth", "SQLite", "Offline-First"],
       images: [upstreamInspectionsImage1, upstreamInspectionsImage2],
-      gradient: "linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.1) 100%)",
+      gradient: "transparent",
       accentColor: "#667EEA",
       impact: "Enabled complete offline field operations",
       category: "Mobile Enterprise",
@@ -59,7 +59,7 @@ The app revolutionized field operations by enabling technicians to work in remot
       description: "Serverless Firebase Functions-based platform with automated scaling. Features coffee menu management with spice level categorization, user authentication with RBAC, and brand-consistent design system with real-time persistence.",
       tags: ["React 18+", "Firebase Functions", "Firestore", "Serverless", "RBAC", "Cultural Branding"],
       images: [sipOfSilkImage],
-      gradient: "linear-gradient(135deg, rgba(46, 204, 113, 0.15) 0%, rgba(39, 174, 96, 0.1) 100%)",
+      gradient: "transparent",
       accentColor: "#2ECC71",
       impact: "Complete coffee shop management system",
       category: "Serverless Platform",
@@ -90,7 +90,7 @@ The platform represents a complete coffee shop management solution that scales a
       description: "Real-time analytics and tracking system with Guardian API integration. Features battery health testing, automated certification generation, role-based dashboards, and sales analytics with predictive modeling for 40% dealer efficiency improvement.",
       tags: ["React", "TypeScript", "Guardian API", "Real-time Analytics", "PDF Generation", "Predictive Modeling"],
       images: [upstreamMobilityImage1, upstreamMobilityImage2, upstreamMobilityImage3],
-      gradient: "linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(0, 242, 254, 0.1) 100%)",
+      gradient: "transparent",
       accentColor: "#4FACFE",
       impact: "40% dealer efficiency improvement",
       category: "Enterprise Analytics",
@@ -121,7 +121,7 @@ The platform achieved a 40% improvement in dealer efficiency by providing action
       description: "Cross-platform voice-controlled AI assistant available as both React Native mobile app and Electron.js desktop application. Features Google Gemini integration, comprehensive Windows service architecture, and system automation including power management, window controls, and office automation.",
       tags: ["Electron.js", "React Native", "Google Gemini AI", "Voice Recognition", "System Automation"],
       images: [jarvisImage],
-      gradient: "linear-gradient(135deg, rgba(240, 147, 251, 0.15) 0%, rgba(245, 87, 108, 0.1) 100%)",
+      gradient: "transparent",
       accentColor: "#F093FB",
       impact: "Personal productivity assistant",
       category: "AI Innovation",
@@ -207,7 +207,7 @@ The assistant transforms daily computer interactions by enabling hands-free cont
       description: "Enterprise-grade vehicle delivery tracking app that opened new revenue streams. Features user-based workflows for remarketers, inspectors, and delivery drivers with comprehensive liability tracking for vehicle condition management.",
       tags: ["React Native", "Enterprise", "Workflow Management", "Liability Tracking", "Revenue Generation"],
       images: [firstChoiceImage, butterChickenImage],
-      gradient: "linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(255, 69, 0, 0.1) 100%)",
+      gradient: "transparent",
       accentColor: "#FF8C00",
       impact: "Opened new revenue streams",
       category: "Enterprise Revenue",
@@ -274,7 +274,7 @@ The application successfully opened new revenue streams by providing essential t
     .map(line => line.replace('•', '').trim())
 
   return (
-    <DetailContainer gradient={project.gradient}>
+    <DetailContainer>
       {/* Animated Background Elements */}
       <FloatingOrb style={{ top: '10%', left: '10%' }} color={project.accentColor} delay={0} />
       <FloatingOrb style={{ top: '60%', right: '15%' }} color={project.accentColor} delay={2} />
@@ -649,7 +649,7 @@ const DetailContainer = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: ${props => props.gradient};
+    background: transparent;
     pointer-events: none;
     z-index: 0;
   }
