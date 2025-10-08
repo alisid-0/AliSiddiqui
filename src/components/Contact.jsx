@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
+import { GithubLogo, LinkedinLogo, Envelope, FilePdf } from '@phosphor-icons/react'
+import resumePdf from '../assets/resume/Ali Siddiqui Resume (1).pdf'
 
 const Contact = () => {
   return (
@@ -16,16 +18,27 @@ const Contact = () => {
             <h3>Let&apos;s Connect</h3>
             <p>I&apos;m always open to new opportunities and interesting projects.</p>
             <SocialLinks>
-              <SocialLink href="https://github.com/alisiddiqui" target="_blank">
+              <SocialLink href="https://github.com/alisid-0" target="_blank" rel="noopener noreferrer">
+                <GithubLogo size={20} weight="bold" />
                 GitHub
               </SocialLink>
-              <SocialLink href="https://linkedin.com/in/ali-siddiqui-dev" target="_blank">
+              <SocialLink href="https://www.linkedin.com/in/ali-a-siddiqui/" target="_blank" rel="noopener noreferrer">
+                <LinkedinLogo size={20} weight="bold" />
                 LinkedIn
               </SocialLink>
-              <SocialLink href="mailto:ali.siddiqui.dev@gmail.com">
+              <SocialLink href="mailto:alisiddiquia22@yahoo.com">
+                <Envelope size={20} weight="bold" />
                 Email
               </SocialLink>
+              <EmailByline>alisiddiquia22@yahoo.com</EmailByline>
             </SocialLinks>
+            
+            <ResumeSection>
+              <ResumeLink href={resumePdf} download="Ali_Siddiqui_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                <FilePdf size={24} weight="bold" />
+                Download Resume
+              </ResumeLink>
+            </ResumeSection>
           </ContactInfo>
         </ContactContent>
       </motion.div>
@@ -113,25 +126,80 @@ const SocialLinks = styled.div`
   }
 `
 
+const EmailByline = styled.span`
+  display: block;
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+  }
+`
+
 const SocialLink = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   color: #ffffff;
   text-decoration: none;
   font-size: 1.1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.5rem;
   border: 1px solid #333;
-  border-radius: 4px;
+  border-radius: 8px;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
   
   &:hover {
-    background: #1a1a1a;
-    border-color: #666;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #64ffda;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(100, 255, 218, 0.2);
   }
   
   @media (max-width: 768px) {
     font-size: 1rem;
-    padding: 0.8rem 1.5rem;
-    width: 200px;
-    text-align: center;
+    padding: 1rem 1.5rem;
+    width: 220px;
+    justify-content: center;
+  }
+`
+
+const ResumeSection = styled.div`
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+`
+
+const ResumeLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #64ffda;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border: 2px solid #64ffda;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(100, 255, 218, 0.1) 0%, rgba(100, 255, 218, 0.05) 100%);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.2) 0%, rgba(100, 255, 218, 0.1) 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(100, 255, 218, 0.3);
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    padding: 1.2rem 2rem;
   }
 `
 

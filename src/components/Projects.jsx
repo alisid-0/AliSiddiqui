@@ -10,6 +10,7 @@ import upstreamMobilityImage1 from '../assets/upstreammobility/Screenshot 2025-1
 import upstreamMobilityImage2 from '../assets/upstreammobility/Screenshot 2025-10-07 151606.png'
 import upstreamMobilityImage3 from '../assets/upstreammobility/Screenshot 2025-10-07 152134.png'
 import sipOfSilkImage from '../assets/sipofsilk/Screenshot 2025-10-07 151211.png'
+import jarvisImage from '../assets/JARVIS/Screenshot 2025-10-07 203902.png'
 
 const Projects = () => {
   const projects = [
@@ -117,23 +118,24 @@ The platform achieved a 40% improvement in dealer efficiency by providing action
       }
     },
     {
-      id: "jarvis-ai",
-      title: "JARVIS AI Assistant",
-      description: "Voice-controlled AI assistant with Google Gemini integration, comprehensive Windows service architecture, and system automation including power management, window controls, and office automation.",
-      summary: "Voice-controlled AI assistant with Google Gemini integration, comprehensive Windows service architecture, and system automation including power management...",
-      tags: ["React Native", "Google Gemini AI", "Windows Services", "Voice Recognition", "System Automation"],
-      images: [butterChickenImage, firstChoiceImage],
+      id: "atlas-ai",
+      title: "ATLAS AI Assistant",
+      description: "Cross-platform voice-controlled AI assistant available as both React Native mobile app and Electron.js desktop application. Features Google Gemini integration, comprehensive Windows service architecture, and system automation including power management, window controls, and office automation.",
+      summary: "Cross-platform voice-controlled AI assistant (React Native + Electron.js) with Google Gemini integration, Windows service architecture, and comprehensive system automation...",
+      tags: ["Electron.js", "React Native", "Google Gemini AI", "Voice Recognition", "System Automation"],
+      images: [jarvisImage],
       scaleX: 1,
       scaleY: 1,
       link: "#",
       gradient: "linear-gradient(135deg, rgba(240, 147, 251, 0.15) 0%, rgba(245, 87, 108, 0.1) 100%)",
       impact: "Personal productivity assistant",
       category: "AI Innovation",
-      detailedDescription: `JARVIS AI Assistant is a comprehensive voice-controlled AI system built with Google Gemini integration. The application provides seamless Windows system automation and office productivity features through natural language processing.
+      detailedDescription: `ATLAS AI Assistant is a comprehensive voice-controlled AI system built with Google Gemini integration. Available as both a React Native mobile app and an Electron.js desktop application, it provides seamless Windows system automation and office productivity features through natural language processing. The showcase demonstrates the Electron.js desktop version.
 
 Key Features:
+• Cross-platform availability (React Native mobile + Electron.js desktop)
 • Voice-controlled interface with Google Gemini AI
-• Windows service architecture for system integration
+• Windows service architecture for deep system integration
 • Power management and system controls
 • Office automation and productivity tools
 • Real-time voice recognition and processing
@@ -141,8 +143,8 @@ Key Features:
 
 The assistant transforms daily computer interactions by enabling hands-free control of system functions, office applications, and productivity tasks through natural speech commands.`,
       techStack: [
-        "React Native", "Google Gemini AI", "Windows Services", "Voice Recognition", 
-        "System Automation", "C#", "Windows API", "Natural Language Processing"
+        "Electron.js", "React Native", "Google Gemini AI", "Node.js", "Windows Services", 
+        "Voice Recognition", "System Automation", "C#", "Windows API", "Natural Language Processing"
       ],
       links: {
         demo: "#",
