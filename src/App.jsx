@@ -14,21 +14,21 @@ import './App.css'
 function App() {
   const [time, setTime] = useState(0)
   
-  // Continuous smooth color transitions using time-based calculations
+  // Optimized smooth color transitions with reduced frequency
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(prev => prev + 0.016) // ~60fps updates
-    }, 16)
+      setTime(prev => prev + 0.05) // ~20fps updates - much more performance friendly
+    }, 50)
 
     return () => clearInterval(interval)
   }, [])
 
   // Generate smooth, continuous color transitions
   const generateSmoothColors = (time) => {
-    // Use sine waves for smooth color transitions
-    const primaryHue = (Math.sin(time * 0.3) * 60 + 200) % 360 // Blue to Purple range
-    const secondaryHue = (Math.sin(time * 0.4 + 2) * 80 + 250) % 360 // Purple to Pink range  
-    const accentHue = (Math.sin(time * 0.2 + 4) * 40 + 180) % 360 // Teal to Blue range
+    // Use sine waves for smooth color transitions with slower, more subtle changes
+    const primaryHue = (Math.sin(time * 0.1) * 60 + 200) % 360 // Blue to Purple range - slower
+    const secondaryHue = (Math.sin(time * 0.15 + 2) * 80 + 250) % 360 // Purple to Pink range - slower
+    const accentHue = (Math.sin(time * 0.08 + 4) * 40 + 180) % 360 // Teal to Blue range - slower
     
     // Convert HSL to RGB with consistent saturation and lightness
     const hslToRgba = (h, s, l, a) => {
@@ -91,6 +91,8 @@ const Container = styled.div`
   color: #ffffff;
   min-height: 100vh;
   position: relative;
+  overflow-x: hidden;
+  width: 100%;
   
   &::before {
     content: '';
@@ -111,7 +113,7 @@ const Container = styled.div`
         transparent 100%);
     pointer-events: none;
     z-index: 0;
-    transition: background 0.1s ease-out;
+    transition: background 0.3s ease-out;
   }
 `
 

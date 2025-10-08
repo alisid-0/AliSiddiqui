@@ -941,15 +941,16 @@ const ImageGallery = styled.div`
 const MonitorFrame = styled(motion.div)`
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: perspective(1200px) rotateY(-3deg) rotateX(1deg);
+  transform: perspective(1000px) rotateY(-2deg) rotateX(1deg);
   margin: 0 auto;
 
   @media (max-width: 768px) {
-    max-width: 600px;
+    max-width: 500px;
+    transform: perspective(800px) rotateY(-1deg) rotateX(0.5deg);
   }
 `
 

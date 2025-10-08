@@ -270,6 +270,7 @@ The application successfully opened new revenue streams by providing essential t
 const ProjectsContainer = styled.div`
   width: 100%;
   position: relative;
+  overflow-x: hidden;
 `
 
 const ProjectSection = styled.section`
@@ -640,19 +641,20 @@ const IPhoneNotch = styled.div`
 const MonitorFrame = styled.div`
   position: relative;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform: perspective(1200px) rotateY(-3deg) rotateX(1deg);
+  transform: perspective(1000px) rotateY(-2deg) rotateX(1deg);
   
   &:hover {
-    transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1.02);
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
   }
 
   @media (max-width: 768px) {
-    max-width: 700px;
+    max-width: 600px;
+    transform: perspective(800px) rotateY(-1deg) rotateX(0.5deg);
   }
 `
 
