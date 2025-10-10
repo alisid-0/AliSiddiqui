@@ -717,7 +717,7 @@ const DetailContainer = styled.div`
   color: #ffffff;
   padding: 2rem;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   
   &::before {
     content: '';
@@ -751,7 +751,11 @@ const DetailContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 1.5rem 1rem;
+    padding: 1.2rem 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem 0.8rem;
   }
 `
 
@@ -881,6 +885,17 @@ const CategoryBadge = styled(motion.div)`
   color: ${props => props.accentColor};
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 16px ${props => `${props.accentColor}20`};
+  
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 0.5rem 1.2rem;
+    letter-spacing: 0.1em;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.65rem;
+    padding: 0.4rem 1rem;
+  }
 `
 
 const Title = styled(motion.h1)`
@@ -899,7 +914,11 @@ const Title = styled(motion.h1)`
   }
 
   @media (max-width: 768px) {
-    font-size: 2.25rem;
+    font-size: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
   }
 `
 
@@ -931,7 +950,13 @@ const ShortDescription = styled(motion.p)`
   margin: 0;
 
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    line-height: 1.55;
   }
 `
 
@@ -940,6 +965,11 @@ const TagContainer = styled(motion.div)`
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-bottom: 2.5rem;
+  
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
 `
 
 const Tag = styled(motion.span)`
@@ -958,6 +988,16 @@ const Tag = styled(motion.span)`
     background: ${props => `${props.accentColor}15`};
     border-color: ${props => `${props.accentColor}60`};
     box-shadow: 0 4px 16px ${props => `${props.accentColor}30`};
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
   }
 `
 
@@ -1013,6 +1053,14 @@ const ImageGallery = styled.div`
   align-items: center;
   justify-content: center;
   min-height: ${props => props.layout === 'portrait' ? '650px' : '500px'};
+  
+  @media (max-width: 768px) {
+    min-height: ${props => props.layout === 'portrait' ? '570px' : '400px'};
+  }
+  
+  @media (max-width: 480px) {
+    min-height: ${props => props.layout === 'portrait' ? '480px' : '320px'};
+  }
 `
 
 const MonitorFrame = styled(motion.div)`
@@ -1027,7 +1075,16 @@ const MonitorFrame = styled(motion.div)`
 
   @media (max-width: 768px) {
     max-width: 500px;
-    transform: perspective(800px) rotateY(-1deg) rotateX(0.5deg);
+    transform: perspective(800px) rotateY(0deg) rotateX(0deg);
+  }
+  
+  @media (max-width: 480px) {
+    max-width: 100%;
+    transform: none;
+    
+    &:hover {
+      transform: scale(1.01);
+    }
   }
 `
 
@@ -1065,7 +1122,12 @@ const MonitorScreen = styled.div`
 
   @media (max-width: 768px) {
     padding: 14px;
-    border-radius: 14px;
+    border-radius: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 10px;
+    border-radius: 10px;
   }
 `
 
@@ -1150,9 +1212,16 @@ const IPhoneFrame = styled(motion.div)`
   }
 
   @media (max-width: 768px) {
-    width: 280px;
-    height: 570px;
-    border-radius: 40px;
+    width: 260px;
+    height: 530px;
+    border-radius: 38px;
+    transform: perspective(800px) rotateY(0deg) rotateX(0deg);
+  }
+  
+  @media (max-width: 480px) {
+    width: 220px;
+    height: 450px;
+    border-radius: 35px;
   }
 `
 
@@ -1293,6 +1362,17 @@ const FeatureItem = styled(motion.div)`
     border-color: rgba(255, 255, 255, 0.15);
     transform: translateX(3px);
   }
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: 0.8rem 0.9rem;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.85rem;
+    padding: 0.7rem 0.8rem;
+  }
 `
 
 const FeatureIcon = styled.div`
@@ -1385,6 +1465,14 @@ const ArchitectureViewContainer = styled(motion.div)`
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.5rem;
+  }
 `
 
 const ArchitectureBackButton = styled(motion.button)`
@@ -1420,6 +1508,16 @@ const ArchitectureTitleMain = styled.h2`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+  }
 `
 
 const ArchitectureLayers = styled.div`
@@ -1441,6 +1539,15 @@ const LayerCard = styled(motion.div)`
     border-color: ${props => props.accentColor}40;
     box-shadow: 0 8px 32px ${props => `${props.accentColor}20`};
   }
+  
+  @media (max-width: 768px) {
+    padding: 1.2rem;
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
 `
 
 const LayerTitle = styled.h4`
@@ -1449,6 +1556,15 @@ const LayerTitle = styled.h4`
   color: ${props => props.accentColor};
   margin: 0 0 1rem 0;
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.85rem;
+  }
 `
 
 const LayerDescription = styled.div`
@@ -1456,6 +1572,15 @@ const LayerDescription = styled.div`
   line-height: 1.6;
   font-size: 0.9rem;
   white-space: pre-line;
+  
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
 `
 
 const TechnologiesSection = styled.div`
@@ -1474,6 +1599,15 @@ const TechnologiesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 const TechCategory = styled.div`
@@ -1482,6 +1616,14 @@ const TechCategory = styled.div`
   border-radius: 10px;
   padding: 1.2rem;
   backdrop-filter: blur(10px);
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.9rem;
+  }
 `
 
 const TechCategoryTitle = styled.h4`

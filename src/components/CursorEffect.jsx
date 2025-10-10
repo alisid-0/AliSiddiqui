@@ -6,8 +6,26 @@ const CursorEffect = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isPointer, setIsPointer] = useState(false)
   const [clicking, setClicking] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    // Check if it's a mobile device
+    const checkMobile = () => {
+      const mobile = window.innerWidth <= 768 || 
+        ('ontouchstart' in window) || 
+        (navigator.maxTouchPoints > 0)
+      setIsMobile(mobile)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  useEffect(() => {
+    if (isMobile) return
+
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
       
@@ -21,9 +39,11 @@ const CursorEffect = () => {
 
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+  }, [isMobile])
 
   useEffect(() => {
+    if (isMobile) return
+
     const handleMouseDown = () => setClicking(true)
     const handleMouseUp = () => setClicking(false)
 
@@ -34,7 +54,12 @@ const CursorEffect = () => {
       window.removeEventListener('mousedown', handleMouseDown)
       window.removeEventListener('mouseup', handleMouseUp)
     }
-  }, [])
+  }, [isMobile])
+
+  // Don't render cursor effect on mobile devices
+  if (isMobile) {
+    return null
+  }
 
   return (
     <CursorDot

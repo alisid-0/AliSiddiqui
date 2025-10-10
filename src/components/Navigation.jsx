@@ -51,9 +51,11 @@ const NavContainer = styled.nav`
   @media (max-width: 768px) {
     top: auto;
     bottom: 2rem;
-    right: 50%;
-    transform: translateX(50%);
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
     mix-blend-mode: normal;
+    width: max-content;
   }
 `
 
@@ -65,11 +67,18 @@ const NavList = styled.ul`
   
   @media (max-width: 768px) {
     flex-direction: row;
-    gap: 0.5rem;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 0.5rem;
-    border-radius: 25px;
-    backdrop-filter: blur(10px);
+    gap: 0.4rem;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 0.5rem 0.8rem;
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.3rem;
+    padding: 0.4rem 0.6rem;
   }
 `
 
@@ -99,14 +108,24 @@ const NavButton = styled(motion.button)`
   
   @media (max-width: 768px) {
     font-size: 0.7rem;
-    padding: 0.3rem 0.5rem;
+    padding: 0.6rem 0.8rem;
     color: #ffffff;
     opacity: 0.8;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
     &:hover {
       opacity: 1;
       color: #64ffda;
     }
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.65rem;
+    padding: 0.5rem 0.7rem;
   }
 `
 

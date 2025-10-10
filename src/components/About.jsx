@@ -87,7 +87,11 @@ const AboutSection = styled.section`
   }
   
   @media (max-width: 768px) {
-    padding: 4rem 1rem;
+    padding: 4rem 1.2rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 3rem 1rem;
   }
 `
 
@@ -141,9 +145,15 @@ const AboutText = styled.p`
   }
   
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 2.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 2rem;
   }
 `
 
@@ -188,6 +198,16 @@ const SkillCard = styled.div`
     padding: 1.5rem;
     gap: 0.8rem;
   }
+  
+  @media (max-width: 480px) {
+    padding: 1.2rem;
+    gap: 0.6rem;
+    
+    svg {
+      width: 28px !important;
+      height: 28px !important;
+    }
+  }
 `
 
 const SkillName = styled.h3`
@@ -195,6 +215,12 @@ const SkillName = styled.h3`
   font-weight: 300;
   letter-spacing: 0.2em;
   color: #ccd6f6;
+  text-align: center;
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+  }
 `
 
 const PortfolioSourceContainer = styled.div`

@@ -285,17 +285,41 @@ const ProjectSection = styled.section`
   background: transparent;
   transition: background 0.6s ease;
   
+  &:first-of-type {
+    padding-top: 6rem;
+  }
+  
   @media (max-width: 1600px) {
     padding: 4rem 3rem;
+    
+    &:first-of-type {
+      padding-top: 6rem;
+    }
   }
   
   @media (max-width: 1024px) {
     padding: 3rem 2rem;
+    
+    &:first-of-type {
+      padding-top: 5rem;
+    }
   }
   
   @media (max-width: 768px) {
     min-height: auto;
-    padding: 3rem 1.5rem;
+    padding: 3rem 1.2rem;
+    
+    &:first-of-type {
+      padding-top: 4rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: 2.5rem 1rem;
+    
+    &:first-of-type {
+      padding-top: 3.5rem;
+    }
   }
 `
 
@@ -344,7 +368,11 @@ const ImageSide = styled.div`
   }
   
   @media (max-width: 768px) {
-    height: 400px;
+    height: 380px;
+  }
+  
+  @media (max-width: 480px) {
+    height: 320px;
   }
 `
 
@@ -409,7 +437,11 @@ const ProjectTitle = styled.h2`
   }
   
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
   }
 `
 
@@ -578,9 +610,16 @@ const IPhoneFrame = styled.div`
   }
   
   @media (max-width: 768px) {
-    width: 280px;
-    height: 570px;
-    border-radius: 40px;
+    width: 260px;
+    height: 530px;
+    border-radius: 38px;
+    transform: perspective(800px) rotateY(0deg) rotateX(0deg);
+  }
+  
+  @media (max-width: 480px) {
+    width: 220px;
+    height: 450px;
+    border-radius: 35px;
   }
 `
 
@@ -654,8 +693,17 @@ const MonitorFrame = styled.div`
   }
 
   @media (max-width: 768px) {
-    max-width: 600px;
-    transform: perspective(800px) rotateY(-1deg) rotateX(0.5deg);
+    max-width: 550px;
+    transform: perspective(800px) rotateY(0deg) rotateX(0deg);
+  }
+  
+  @media (max-width: 480px) {
+    max-width: 100%;
+    transform: none;
+    
+    &:hover {
+      transform: scale(1.01);
+    }
   }
 `
 

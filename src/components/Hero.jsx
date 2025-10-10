@@ -127,6 +127,11 @@ const HeroSection = styled.section`
     pointer-events: none;
     z-index: 0;
   }
+  
+  @media (max-width: 768px) {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
 `
 
 const GridTexture = styled.div`
@@ -146,6 +151,12 @@ const GridTexture = styled.div`
 const HeroContent = styled.div`
   position: relative;
   z-index: 2;
+  padding: 0 1.5rem;
+  
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
 `
 
 const IconsContainer = styled.div`
@@ -153,6 +164,21 @@ const IconsContainer = styled.div`
   gap: 2rem;
   justify-content: center;
   margin-bottom: 2rem;
+  
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+    
+    svg {
+      width: 28px !important;
+      height: 28px !important;
+    }
+  }
 `
 
 const HeroTitle = styled.h1`
@@ -164,14 +190,21 @@ const HeroTitle = styled.h1`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
+  text-align: center;
   
   @media (max-width: 1024px) {
     font-size: 4rem;
   }
   
   @media (max-width: 768px) {
-    font-size: 3rem;
+    font-size: 2.5rem;
     letter-spacing: 0.1em;
+    margin-bottom: 0.8rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    letter-spacing: 0.08em;
   }
 `
 
@@ -181,14 +214,21 @@ const HeroSubtitle = styled.h2`
   font-weight: 100;
   letter-spacing: 0.3em;
   margin-bottom: 1rem;
+  text-align: center;
   
   @media (max-width: 1024px) {
     font-size: 1.3rem;
   }
   
   @media (max-width: 768px) {
-    font-size: 1.1rem;
-    letter-spacing: 0.2em;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.8rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
   }
 `
 
@@ -205,8 +245,15 @@ const HeroDescription = styled.p`
   }
   
   @media (max-width: 768px) {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
   }
 `
 
@@ -215,6 +262,12 @@ const LineContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `
 
 const GlowingLine = styled.div`
@@ -223,6 +276,14 @@ const GlowingLine = styled.div`
   background: linear-gradient(90deg, #64ffda, #bd93f9, #ff79c6);
   border-radius: 1px;
   box-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+  
+  @media (max-width: 768px) {
+    width: 120px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 100px;
+  }
 `
 
 export default Hero 

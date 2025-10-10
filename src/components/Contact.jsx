@@ -60,8 +60,13 @@ const ContactSection = styled.section`
   }
   
   @media (max-width: 768px) {
-    padding: 2rem 1rem;
+    padding: 2rem 1.2rem 7rem;
     min-height: 70vh;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 2rem 1rem 7rem;
+    min-height: 60vh;
   }
 `
 
@@ -137,6 +142,7 @@ const SocialLink = styled.a`
   border-radius: 8px;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  min-height: 44px;
   
   &:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -148,8 +154,15 @@ const SocialLink = styled.a`
   @media (max-width: 768px) {
     font-size: 1rem;
     padding: 1rem 1.5rem;
-    width: 220px;
+    width: 240px;
     justify-content: center;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    padding: 1rem 1.2rem;
+    width: 100%;
+    max-width: 280px;
   }
 `
 
@@ -173,6 +186,7 @@ const ResumeLink = styled.a`
   background: linear-gradient(135deg, rgba(100, 255, 218, 0.1) 0%, rgba(100, 255, 218, 0.05) 100%);
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  min-height: 44px;
   
   &:hover {
     background: linear-gradient(135deg, rgba(100, 255, 218, 0.2) 0%, rgba(100, 255, 218, 0.1) 100%);
@@ -183,8 +197,13 @@ const ResumeLink = styled.a`
   }
   
   @media (max-width: 768px) {
-    font-size: 1.1rem;
-    padding: 1.2rem 2rem;
+    font-size: 1.05rem;
+    padding: 1.1rem 1.8rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
   }
 `
 
