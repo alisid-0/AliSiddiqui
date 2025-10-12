@@ -9,12 +9,11 @@ const CursorEffect = () => {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    // Check if it's a mobile device
+    // Check if it's a mobile device - be more conservative
     const checkMobile = () => {
-      const mobile = window.innerWidth <= 768 || 
-        ('ontouchstart' in window) || 
-        (navigator.maxTouchPoints > 0)
+      const mobile = window.innerWidth <= 768
       setIsMobile(mobile)
+      console.log('Cursor Effect - Is Mobile:', mobile, 'Width:', window.innerWidth)
     }
     
     checkMobile()
@@ -58,20 +57,25 @@ const CursorEffect = () => {
 
   // Don't render cursor effect on mobile devices
   if (isMobile) {
+    console.log('Cursor Effect - Not rendering (mobile)')
     return null
   }
 
+  console.log('Cursor Effect - Rendering at:', mousePosition)
+
   return (
     <CursorDot
+      style={{
+        left: mousePosition.x,
+        top: mousePosition.y,
+      }}
       animate={{
-        x: mousePosition.x,
-        y: mousePosition.y,
-        scale: clicking ? 0.8 : isPointer ? 1.2 : 1,
+        scale: clicking ? 0.8 : isPointer ? 1.5 : 1,
       }}
       transition={{
-        type: "tween",
-        ease: "backOut",
-        duration: 0.15
+        type: "spring",
+        stiffness: 500,
+        damping: 28
       }}
     />
   )
@@ -79,15 +83,18 @@ const CursorEffect = () => {
 
 const CursorDot = styled(motion.div)`
   position: fixed;
-  width: 8px;
-  height: 8px;
+  width: 20px;
+  height: 20px;
   background: #64ffda;
+  border: 2px solid #ffffff;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 99999;
   transform: translate(-50%, -50%);
-  mix-blend-mode: difference;
-  box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.8), 0 0 40px rgba(100, 255, 218, 0.4);
 `
 
 export default CursorEffect
