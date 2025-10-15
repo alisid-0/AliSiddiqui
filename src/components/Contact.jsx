@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 import { GithubLogo, LinkedinLogo, Envelope, FilePdf, PaperPlaneTilt } from '@phosphor-icons/react'
-import resumePdf from '../assets/resume/Ali Siddiqui Resume (2).pdf'
+import resumePdf from '../assets/resume/Ali Siddiqui Resume.pdf'
 import { useState } from 'react'
 
 const Contact = () => {
