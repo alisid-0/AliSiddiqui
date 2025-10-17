@@ -11,6 +11,7 @@ import upstreamMobilityImage2 from '../assets/upstreammobility/Screenshot 2025-1
 import upstreamMobilityImage3 from '../assets/upstreammobility/Screenshot 2025-10-07 152134.png'
 import sipOfSilkImage from '../assets/sipofsilk/Screenshot 2025-10-07 151211.png'
 import jarvisImage from '../assets/JARVIS/Screenshot 2025-10-07 203902.png'
+import windsweptImage from '../assets/Windswept/Screenshot 2025-10-17 165606.png'
 
 const Projects = () => {
   const projects = [
@@ -150,6 +151,41 @@ The assistant transforms daily computer interactions by enabling hands-free cont
       links: {
         demo: "#",
         github: "https://github.com/alisid-0/ATLAS-WIN",
+        documentation: "#"
+      }
+    },
+    {
+      id: "windswept",
+      title: "Windswept",
+      description: "Immersive action-adventure game built in Unreal Engine 5 featuring a custom Kuwahara filter for hand-painted visuals, fluid combat system, and meticulously crafted world with dynamic 3D audio and original music.",
+      summary: "Immersive action-adventure game built in Unreal Engine 5 with custom Kuwahara filter for hand-painted visuals, fluid combat system, and carefully crafted world...",
+      tags: ["Unreal Engine 5", "C++", "Blueprints", "Game Development", "3D Audio", "Custom Shaders"],
+      images: [windsweptImage],
+      scaleX: 1.1,
+      scaleY: 1.1,
+      link: "#",
+      gradient: "transparent",
+      impact: "Independent game development",
+      category: "Game Development",
+      detailedDescription: `Windswept is an ambitious action-adventure game developed in Unreal Engine 5, showcasing advanced technical and artistic capabilities. The project represents years of passion for game development, combining custom rendering techniques with fluid gameplay mechanics.
+
+Key Features:
+• Custom Kuwahara filter implementation creating a unique hand-painted art style
+• Fluid combat system with responsive controls and dynamic animations
+• Carefully designed game world with attention to environmental storytelling
+• Comprehensive UI/UX design for immersive player experience
+• Original music composition and implementation
+• Advanced 3D spatial audio system for environmental immersion
+• Performance-optimized for smooth gameplay
+
+This project demonstrates the culmination of a game development journey that began at age 11 with GameMaker Studio, evolved through CryEngine and Unreal Engine, balancing solo development with professional work and personal life.`,
+      techStack: [
+        "Unreal Engine 5", "C++", "Blueprints", "HLSL", "Niagara VFX", 
+        "MetaSounds", "Animation Blueprints", "UMG", "Nanite", "Lumen"
+      ],
+      links: {
+        demo: "#",
+        github: "#",
         documentation: "#"
       }
     },

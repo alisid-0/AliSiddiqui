@@ -57,11 +57,9 @@ const CursorEffect = () => {
 
   // Don't render cursor effect on mobile devices
   if (isMobile) {
-    console.log('Cursor Effect - Not rendering (mobile)')
     return null
   }
 
-  console.log('Cursor Effect - Rendering at:', mousePosition)
 
   return (
     <CursorDot

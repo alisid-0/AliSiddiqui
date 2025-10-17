@@ -12,6 +12,11 @@ import sipOfSilkImage from '../assets/sipofsilk/Screenshot 2025-10-07 151211.png
 import firstChoiceImage from '../assets/firstchoice.png'
 import butterChickenImage from '../assets/butter.png'
 import jarvisImage from '../assets/JARVIS/Screenshot 2025-10-07 203902.png'
+import windsweptImage1 from '../assets/Windswept/Screenshot 2025-10-17 165606.png'
+import windsweptImage2 from '../assets/Windswept/Screenshot 2025-10-17 165654.png'
+import windsweptImage3 from '../assets/Windswept/Screenshot 2025-10-17 170013.png'
+import windsweptVideo1 from '../assets/Windswept/uncapped_MedalTVUnrealEngine202510171659441.mp4'
+import windsweptVideo2 from '../assets/Windswept/uncapped_MedalTVUnrealEngine20251017165944.mp4'
 
 const ProjectDetail = () => {
   const { projectId } = useParams()
@@ -278,6 +283,39 @@ The assistant transforms daily computer interactions by enabling hands-free cont
         }
       }
     },
+    "windswept": {
+      id: "windswept",
+      title: "Windswept",
+      description: "Immersive action-adventure game built in Unreal Engine 5 featuring a custom Kuwahara filter for hand-painted visuals, fluid combat system, and meticulously crafted world with dynamic 3D audio and original music.",
+      tags: ["Unreal Engine 5", "C++", "Blueprints", "Game Development", "3D Audio", "Custom Shaders"],
+      images: [windsweptImage1, windsweptImage2, windsweptImage3],
+      videos: [windsweptVideo1, windsweptVideo2],
+      gradient: "transparent",
+      accentColor: "#8B5CF6",
+      impact: "Independent game development",
+      category: "Game Development",
+      detailedDescription: `Windswept is an ambitious action-adventure game developed in Unreal Engine 5, showcasing advanced technical and artistic capabilities. The project represents years of passion for game development, combining custom rendering techniques with fluid gameplay mechanics.
+
+Key Features:
+• Custom Kuwahara filter implementation creating a unique hand-painted art style
+• Fluid combat system with responsive controls and dynamic animations
+• Carefully designed game world with attention to environmental storytelling
+• Comprehensive UI/UX design for immersive player experience
+• Original music composition and implementation
+• Advanced 3D spatial audio system for environmental immersion
+• Performance-optimized for smooth gameplay
+
+This project demonstrates the culmination of a game development journey that began at age 11 with GameMaker Studio, evolved through CryEngine and Unreal Engine, balancing solo development with professional work and personal life.`,
+      techStack: [
+        "Unreal Engine 5", "C++", "Blueprints", "HLSL", "Niagara VFX", 
+        "MetaSounds", "Animation Blueprints", "UMG", "Nanite", "Lumen"
+      ],
+      links: {
+        demo: "#",
+        github: "#",
+        documentation: "#"
+      }
+    },
     "car-id": {
       id: "car-id",
       title: "Car-ID",
@@ -312,6 +350,34 @@ The application successfully opened new revenue streams by providing essential t
   }
 
   const project = projects[projectId]
+
+  // Combine images and videos for gallery - videos first, then images
+  const allMedia = project ? [
+    ...(project.videos ? project.videos.slice().reverse() : []), // Reverse video order
+    ...(project.images || [])
+  ] : []
+
+  // Keyboard navigation for image gallery
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!project || allMedia.length <= 1) return
+      
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault()
+        setCurrentImageIndex(prev => 
+          prev === 0 ? allMedia.length - 1 : prev - 1
+        )
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault()
+        setCurrentImageIndex(prev => 
+          prev === allMedia.length - 1 ? 0 : prev + 1
+        )
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [allMedia.length])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -468,16 +534,31 @@ The application successfully opened new revenue streams by providing essential t
                     transition={{ duration: 0.5 }}
                   >
                     <IPhoneScreen>
-                      <ProjectImage
-                        as={motion.img}
-                        src={project.images[currentImageIndex]}
-                        alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                        key={currentImageIndex}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.7 }}
-                        isPortrait={true}
-                      />
+                      {allMedia[currentImageIndex] && allMedia[currentImageIndex].includes('.mp4') ? (
+                        <ProjectVideo
+                          as={motion.video}
+                          src={allMedia[currentImageIndex]}
+                          key={currentImageIndex}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.7 }}
+                          isPortrait={true}
+                          controls
+                          muted
+                          loop
+                        />
+                      ) : (
+                        <ProjectImage
+                          as={motion.img}
+                          src={allMedia[currentImageIndex]}
+                          alt={`${project.title} - Media ${currentImageIndex + 1}`}
+                          key={currentImageIndex}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.7 }}
+                          isPortrait={true}
+                        />
+                      )}
                     </IPhoneScreen>
                     <IPhoneNotch />
                   </IPhoneFrame>
@@ -487,31 +568,63 @@ The application successfully opened new revenue streams by providing essential t
                     transition={{ duration: 0.5 }}
                   >
                     <MonitorScreen>
-                      <ProjectImage
-                        as={motion.img}
-                        src={project.images[currentImageIndex]}
-                        alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                        key={currentImageIndex}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.7 }}
-                        accentColor={project.accentColor}
-                      />
+                      {allMedia[currentImageIndex] && allMedia[currentImageIndex].includes('.mp4') ? (
+                        <ProjectVideo
+                          as={motion.video}
+                          src={allMedia[currentImageIndex]}
+                          key={currentImageIndex}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.7 }}
+                          accentColor={project.accentColor}
+                          controls
+                          muted
+                          loop
+                        />
+                      ) : (
+                        <ProjectImage
+                          as={motion.img}
+                          src={allMedia[currentImageIndex]}
+                          alt={`${project.title} - Media ${currentImageIndex + 1}`}
+                          key={currentImageIndex}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.7 }}
+                          accentColor={project.accentColor}
+                        />
+                      )}
                     </MonitorScreen>
                     <MonitorStand />
                     <MonitorBase />
                   </MonitorFrame>
                 )}
-                {project.images.length > 1 && (
+                {project && allMedia.length > 1 && (
                   <ImageIndicators>
-                    {project.images.map((_, index) => (
+                    <ImageCounter>
+                      {currentImageIndex + 1} / {allMedia.length}
+                    </ImageCounter>
+                    {allMedia.map((_, index) => (
                       <Indicator
-                        key={index}
+                        key={`indicator-${index}`}
                         active={index === currentImageIndex}
-                        onClick={() => setCurrentImageIndex(index)}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          console.log('Indicator clicked:', index, 'Current:', currentImageIndex)
+                          setCurrentImageIndex(index)
+                        }}
                         accentColor={project.accentColor}
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.9 }}
+                        aria-label={`View media ${index + 1} of ${allMedia.length}`}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault()
+                            setCurrentImageIndex(index)
+                          }
+                        }}
                       />
                     ))}
                   </ImageIndicators>
@@ -1040,6 +1153,7 @@ const ActionLink = styled(motion.a)`
 
 const ImageSection = styled(motion.div)`
   margin-top: 1.5rem;
+  pointer-events: auto;
 
   @media (max-width: 1024px) {
     margin-top: 2rem;
@@ -1053,6 +1167,7 @@ const ImageGallery = styled.div`
   align-items: center;
   justify-content: center;
   min-height: ${props => props.layout === 'portrait' ? '650px' : '500px'};
+  pointer-events: auto;
   
   @media (max-width: 768px) {
     min-height: ${props => props.layout === 'portrait' ? '570px' : '400px'};
@@ -1175,6 +1290,17 @@ const ProjectImage = styled.img`
   display: block;
 `
 
+const ProjectVideo = styled.video`
+  max-width: 100%;
+  max-height: 100%;
+  width: ${props => props.isPortrait ? '100%' : '100%'};
+  height: ${props => props.isPortrait ? '100%' : 'auto'};
+  object-fit: ${props => props.isPortrait ? 'cover' : 'contain'};
+  border-radius: ${props => props.isPortrait ? '0' : '8px'};
+  box-shadow: ${props => props.isPortrait ? 'none' : 'inset 0 0 20px rgba(0, 0, 0, 0.3)'};
+  display: block;
+`
+
 const IPhoneFrame = styled(motion.div)`
   position: relative;
   width: 320px;
@@ -1282,25 +1408,63 @@ const IPhoneNotch = styled.div`
 
 const ImageIndicators = styled.div`
   position: absolute;
-  bottom: -35px;
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 0.6rem;
+  align-items: center;
+  gap: 1.2rem;
+  z-index: 1000;
+  pointer-events: auto;
+  width: 100%;
+  justify-content: center;
+  padding: 0.5rem;
+`
+
+const ImageCounter = styled.div`
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 `
 
 const Indicator = styled(motion.button)`
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: ${props => props.active ? props.accentColor : 'rgba(255, 255, 255, 0.3)'};
-  border: ${props => props.active ? `2px solid ${props.accentColor}` : '2px solid transparent'};
+  background: ${props => props.active ? props.accentColor : 'rgba(255, 255, 255, 0.6)'};
+  border: ${props => props.active ? `3px solid ${props.accentColor}` : '3px solid rgba(255, 255, 255, 0.8)'};
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: ${props => props.active ? `0 0 15px ${props.accentColor}60` : 'none'};
+  box-shadow: ${props => props.active ? `0 0 25px ${props.accentColor}80` : '0 0 15px rgba(255, 255, 255, 0.4)'};
+  outline: none;
+  position: relative;
+  pointer-events: auto !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  flex-shrink: 0;
+  min-width: 20px;
+  min-height: 20px;
 
   &:hover {
-    background: ${props => props.active ? props.accentColor : 'rgba(255, 255, 255, 0.6)'};
+    background: ${props => props.active ? props.accentColor : 'rgba(255, 255, 255, 0.9)'};
+    transform: scale(1.15);
+    box-shadow: ${props => props.active ? `0 0 30px ${props.accentColor}90` : '0 0 20px rgba(255, 255, 255, 0.6)'};
+  }
+
+  &:focus {
+    outline: 3px solid ${props => props.accentColor};
+    outline-offset: 3px;
+  }
+
+  &:active {
+    transform: scale(0.9);
   }
 `
 

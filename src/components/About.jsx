@@ -25,9 +25,10 @@ const About = () => {
           >
             <SectionTitle>About Me</SectionTitle>
             <AboutText>
-              I&apos;m an enterprise full-stack engineer specializing in cross-platform development, cloud architecture, and scalable system design. 
-              With expertise spanning from enterprise-grade automotive management systems to voice-controlled AI assistants, 
-              I&apos;ve delivered solutions that have not only improved operational efficiency across multiple industries but have opened up multiple revenue streams.
+              I&apos;m an enterprise full-stack engineer and independent videogame developer specializing in cross-platform development, cloud architecture, and scalable system design. 
+              My journey with computers and coding began at 11 with GameMaker Studio, evolved through CryEngine (inspired by Crysis 2), and matured with Unreal Engine and Unity. 
+              From enterprise automotive systems to voice-controlled AI assistants and immersive game worlds, I&apos;ve delivered solutions that improve operational efficiency 
+              and create engaging experiences across multiple domains.
             </AboutText>
             
             <SkillsGrid>
