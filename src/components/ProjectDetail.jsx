@@ -286,7 +286,7 @@ The assistant transforms daily computer interactions by enabling hands-free cont
     "windswept": {
       id: "windswept",
       title: "Windswept",
-      description: "Immersive action-adventure game built in Unreal Engine 5 featuring a custom Kuwahara filter for hand-painted visuals, fluid combat system, and meticulously crafted world with dynamic 3D audio and original music.",
+      description: "Immersive action-adventure game built in Unreal Engine 5 featuring a custom Kuwahara filter for hand-painted visuals, fluid combat system, and meticulously crafted world with dynamic 3D audio.",
       tags: ["Unreal Engine 5", "C++", "Blueprints", "Game Development", "3D Audio", "Custom Shaders"],
       images: [windsweptImage1, windsweptImage2, windsweptImage3],
       videos: [windsweptVideo1, windsweptVideo2],
@@ -301,7 +301,6 @@ Key Features:
 • Fluid combat system with responsive controls and dynamic animations
 • Carefully designed game world with attention to environmental storytelling
 • Comprehensive UI/UX design for immersive player experience
-• Original music composition and implementation
 • Advanced 3D spatial audio system for environmental immersion
 • Performance-optimized for smooth gameplay
 
